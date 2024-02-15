@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Maestro (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Maestro (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
