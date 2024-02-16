@@ -2,28 +2,29 @@
 
 using Maestro.Contracts.ViewModels;
 using Maestro.Core.Contracts.Services;
-using Maestro.Core.Models;
+using Maestro.Models;
 
 namespace Maestro.ViewModels;
 
 public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly ISampleDataService _sampleDataService;
 
     [ObservableProperty]
-    private Song? item;
+    private Playlist? item;
 
-    public PlaylistsDetailViewModel(ISampleDataService sampleDataService)
+    public PlaylistsDetailViewModel()
     {
-        _sampleDataService = sampleDataService;
+       
     }
 
     public async void OnNavigatedTo(object parameter)
     {
-        if (parameter is long orderID)
+        if (parameter is Playlist playlist)
         {
-            var data = await _sampleDataService.GetContentGridDataAsync();
-            Item = data.First(i => i.OrderID == orderID);
+            //var data = await _sampleDataService.GetContentGridDataAsync();
+            //Item = data.First(i => i.OrderID == orderID);
+            Item = playlist;
+
         }
     }
 

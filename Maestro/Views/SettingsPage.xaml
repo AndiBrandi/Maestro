@@ -13,9 +13,11 @@
     <Grid>
         <StackPanel
             x:Name="ContentArea">
+            <!--Personalization-->
             <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
+
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <TextBlock x:Uid="Settings_Theme" />
+                <TextBlock x:Uid="Settings_Theme" /> 
 
                 <StackPanel Margin="{StaticResource XSmallTopMargin}">
                     <RadioButton

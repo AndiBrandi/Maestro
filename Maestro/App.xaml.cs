@@ -11,6 +11,7 @@ using Maestro.Views;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 
 namespace Maestro;
@@ -63,13 +64,12 @@ public partial class App : Application
             services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
             services.AddTransient<INavigationViewService, NavigationViewService>();
-
+            services.AddSingleton<IApplicationBehaviorService, ApplicationBehaviorService>();
             services.AddSingleton<IActivationService, ActivationService>();
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
 
             // Core Services
-            services.AddSingleton<ISampleDataService, SampleDataService>();
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
@@ -106,6 +106,7 @@ public partial class App : Application
     {
         base.OnLaunched(args);
 
+        //((OverlappedPresenter)App.MainWindow.Presenter).IsAlwaysOnTop = true; //This let's the window always stay on top of all other windows
         App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
 
         await App.GetService<IActivationService>().ActivateAsync(args);

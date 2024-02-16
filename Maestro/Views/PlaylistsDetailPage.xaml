@@ -1,14 +1,13 @@
 ﻿<Page
     x:Class="Maestro.Views.PlaylistsDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
-    xmlns:models="using:Maestro.Core.Models"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
+
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -28,6 +27,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+        <!--Detailansicht (rechts) Playlists Tab-->
         <ScrollViewer
             IsTabStop="True">
             <StackPanel
@@ -47,8 +47,9 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="70"
-                            Glyph="{x:Bind ViewModel.Item.Symbol}"
-                            AutomationProperties.Name="{x:Bind ViewModel.Item.SymbolName}" />
+                            
+                            AutomationProperties.Name="{x:Bind ViewModel.Item.PlaylistName}" />
+                        <!--Glyph="{x:Bind ViewModel.Item.Symbol}"     Ein zeile darüber einfügen --> 
                     </Grid>
 
                     <TextBlock
@@ -57,50 +58,29 @@
                         RelativePanel.AlignTopWithPanel="True"
                         RelativePanel.RightOf="itemHero"
                         Style="{ThemeResource TitleTextBlockStyle}"
-                        Text="{x:Bind ViewModel.Item.Company, Mode=OneWay}" />
+                        Text="{x:Bind ViewModel.Item.PlaylistName, Mode=OneWay}" />
 
                     <StackPanel x:Name="propertiesGroup1" RelativePanel.Below="itemHero">
                         <StackPanel x:Name="statusGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Status" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.Status}" />
+                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Song count" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.SongCount}" />
                         </StackPanel>
 
                         <StackPanel x:Name="orderDateGroup" Margin="{StaticResource SmallTopMargin}">
                             <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Order date" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.OrderDate}" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistID}" />
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel x:Name="propertiesGroup2" RelativePanel.Below="propertiesGroup1">
-                        <StackPanel x:Name="shipToGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Ship to" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.ShipTo}" />
-                        </StackPanel>
 
                         <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Order total" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.OrderTotal}" />
+                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Description" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
                         </StackPanel>
                     </StackPanel>
 
                 </RelativePanel>
-
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Style="{ThemeResource SubtitleTextBlockStyle}"
-                    Text="Note 1" />
-                <TextBlock
-                    Style="{ThemeResource BodyTextBlockStyle}"
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
-
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Style="{ThemeResource SubtitleTextBlockStyle}"
-                    Text="Note 2" />
-                <TextBlock
-                    Margin="{StaticResource MediumBottomMargin}"
-                    Style="{ThemeResource BodyTextBlockStyle}"
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

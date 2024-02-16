@@ -180,6 +180,6 @@
     <value>Application Behaviour</value>
   </data>
   <data name="Settings_WindowOnTop_Checkbox.Content" xml:space="preserve">
-    <value>Window always on Top</value>
+    <value>Window always on Top (not functional)</value>
   </data>
 </root>

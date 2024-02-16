@@ -1,5 +1,4 @@
-﻿using Maestro.Core.Models;
-
+﻿using Maestro.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 

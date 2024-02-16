@@ -20,6 +20,9 @@ public partial class SettingsViewModel : ObservableRecipient
     [ObservableProperty]
     private ElementTheme _elementTheme;
 
+    //[ObservableProperty]
+    //private bool _isWindowAlwaysOnTopChecked;
+
     [ObservableProperty]
     private string _versionDescription;
 
@@ -28,7 +31,7 @@ public partial class SettingsViewModel : ObservableRecipient
         get;
     }
 
-    public SettingsViewModel(IThemeSelectorService themeSelectorService)
+    public SettingsViewModel(IThemeSelectorService themeSelectorService, IApplicationBehaviorService applicationBehaviorService)
     {
         _themeSelectorService = themeSelectorService;
         _elementTheme = _themeSelectorService.Theme;
