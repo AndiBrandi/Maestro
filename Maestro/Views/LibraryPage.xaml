@@ -8,7 +8,8 @@
     xmlns:models="using:Maestro.Models"
     xmlns:views="using:Maestro.Views"
     xmlns:behaviors="using:Maestro.Behaviors"
-    behaviors:NavigationViewHeaderBehavior.HeaderMode="Never"
+    xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    behaviors:NavigationViewHeaderBehavior.HeaderMode="Always"
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="ItemTemplate" x:DataType="models:Song">
@@ -21,7 +22,6 @@
                     Grid.Column="0"
                     VerticalAlignment="Center"
                     FontSize="32"
-                    
                     AutomationProperties.Name="{x:Bind SongTitle}" />
                 <StackPanel
                     Grid.Column="1"
@@ -35,6 +35,7 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+
 
         <DataTemplate x:Key="DetailsTemplate">
             <Grid>
@@ -78,7 +79,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <!--641 is the default CompactModeThresholdWidth in NavigationView -->
+                        <!--641 is the default CompactModeThresholdWidth in NavigationView--> 
                         <AdaptiveTrigger MinWindowWidth="641" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>

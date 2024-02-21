@@ -7,6 +7,7 @@
     xmlns:animations="using:CommunityToolkit.WinUI.UI.Animations"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:models="using:Maestro.Models"
+    xmlns:viewmodels="using:Maestro.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PlaylistsViewModel}"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
@@ -26,9 +27,9 @@
                         x:Name="itemThumbnail"
                         Padding="{StaticResource XSmallLeftTopRightBottomMargin}">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <!--<FontIcon
-                                Glyph="{x:Bind Thumbnail}"
-                                AutomationProperties.Name="{x:Bind SymbolName}" />-->
+                            <FontIcon
+                                Glyph="&#xE774;"
+                                AutomationProperties.Name="{x:Bind PlaylistName}" />
                             <TextBlock
                                 Margin="{StaticResource XXSmallTopMargin}"
                                 HorizontalAlignment="Center"

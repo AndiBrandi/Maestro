@@ -12,16 +12,16 @@ public class Playlist
 
     #region FIELDS
     private readonly Guid _playlistID = Guid.NewGuid();
-    private string _playlistName;
+    private string? _playlistName;
     private string? _playlistDescription;
     private List<Song>? _songList;
     #endregion //FIELDS
 
     #region PROPERTIES
 
-    public Guid PlaylistID => _playlistID;      //get
+    public Guid PlaylistID => _playlistID;      //get ID
 
-    public string PlaylistName
+    public string? PlaylistName
     {
         get => _playlistName;
         set => _playlistName = value;

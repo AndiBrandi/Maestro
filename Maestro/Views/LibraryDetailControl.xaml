@@ -28,12 +28,8 @@
                 </StackPanel>
                 <StackPanel Padding="0,15,0,0">
                     <TextBlock Text="Artist" Style="{StaticResource DetailSubTitleStyle}" />
-                    <ListView ItemsSource="{x:Bind ListDetailsMenuItem.SongArtists, Mode=OneWay}"
-                              MaxHeight="100"
-                              MaxWidth="300"
-                              HorizontalAlignment="Left"
-                              SelectionMode="None"
-                              />
+
+                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongArtistsAsString, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
 
                     <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
@@ -45,16 +41,21 @@
                     Text="Description:"
                     Style="{StaticResource DetailSubTitleStyle}" />
                     <TextBlock Text="{x:Bind ListDetailsMenuItem.SongDescription, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
-                    <HyperlinkButton
-                    Margin="{StaticResource SmallTopMargin}"
-                    NavigateUri="{x:Bind ListDetailsMenuItem.SongURL, Mode=OneWay}" Padding="1">
-                        <HyperlinkButton.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon Glyph="&#xE8A7;"/>
-                                <TextBlock Text="  YouTube"/>
-                            </StackPanel>
-                        </HyperlinkButton.Content>
-                    </HyperlinkButton>
+                    <StackPanel Orientation="Horizontal">
+                        <HyperlinkButton
+                            Margin="{StaticResource SmallTopMargin}"
+                            NavigateUri="{x:Bind ListDetailsMenuItem.SongURL, Mode=OneWay}" Padding="1">
+                            <HyperlinkButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon Glyph="&#xE8A7;"/>
+                                    <TextBlock Text="YouTube" Margin="{StaticResource SmallLeftMargin}"/>
+                                </StackPanel>
+                            </HyperlinkButton.Content>
+                        </HyperlinkButton>
+                        <!--<Button Margin="{StaticResource SmallTopMargin}">
+                            <FontIcon Glyph="&#xE8C8;"/>
+                        </Button>-->
+                    </StackPanel>
 
                     <TextBlock
                     Margin="{StaticResource SmallTopMargin}"

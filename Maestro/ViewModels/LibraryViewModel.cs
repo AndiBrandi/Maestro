@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.ViewModels;
+using Maestro.Helpers;
 using Maestro.Models;
+using Windows.ApplicationModel.DataTransfer;
 
 namespace Maestro.ViewModels;
 
@@ -17,7 +19,7 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 
     public LibraryViewModel()
     {
-         
+        CommandCopyToClipboard = new RelayCommand(ExecuteCopyToClipboard);
     }
 
     public async void OnNavigatedTo(object parameter)
@@ -33,39 +35,10 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         //}
 
         //Test data
-        AllSongs.Add(new Song
+        foreach (var song in SampleData.SampleSongs)
         {
-            SongTitle = "David Guetta & Bebe Rexha - I'm Good (Blue) [Official Music Video]",
-            SongDescription = "Im good david guetta original",
-            SongArtists = new List<string> {"David Guetta","Bebe Rexha" },
-            SongDuration = "2:57",
-            SongURL = "https://www.youtube.com/watch?v=90RLzVUuXe4"
-        });
-        AllSongs.Add(new Song
-        {
-            SongTitle = "R3HAB x A Touch Of Class - All Around The World (La La La) (Alan Walker Remix) (Official Visualizer)",
-            SongDescription = "Around the world rehab alan walker",
-            SongArtists = new List<string> { "R3HAB", "A Touch of Class", "Alan Walker" },
-            SongDuration = "2:13",
-            SongURL = "https://www.youtube.com/watch?v=xWMUqEAPu-k"
-
-        });
-        AllSongs.Add(new Song
-        {
-            SongTitle = "Luis Fonsi - Despacito ft. Daddy Yankee",
-            SongDescription = "Despacito official video",
-            SongArtists = new List<string> { "Luis Fonsi", "Daddy Yankee" },
-            SongDuration = "4:42",
-            SongURL = "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-        });
-        AllSongs.Add(new Song
-        {
-            SongTitle = "Avicii - Levels",
-            SongDescription = "Levels Original",
-            SongArtists = new List<string> { "Avicii" },
-            SongDuration = "3:18",
-            SongURL = "https://www.youtube.com/watch?v=_ovdm2yX4MA",
-        });
+            AllSongs.Add(song);
+        }
     }
 
     public void OnNavigatedFrom()
@@ -76,4 +49,17 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
     {
         Selected ??= AllSongs.First();
     }
+
+    public ICommand CommandCopyToClipboard
+    {
+        get;
+    }
+
+    public void ExecuteCopyToClipboard()
+    {
+        DataPackage dataPackage = new();
+        dataPackage.SetText(Selected?.SongURL);
+        Clipboard.SetContent(dataPackage);
+    }
+
 }

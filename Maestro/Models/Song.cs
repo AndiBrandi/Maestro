@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -13,11 +14,11 @@ public class Song
     #region FIELDS
 
     private Guid _songID;
-    private string? _songTitle;
-    private string? _songDescription;
-    private List<string>? _songArtists;
-    private string? _songDuration;
-    private string? _songYoutubeURL;
+    private string? _songTitle = "";
+    private string? _songDescription = "";
+    private List<string>? _songArtists = new();
+    private string? _songDuration = "";
+    private string? _songYoutubeURL = "";
     private Image? _thumbnail;
 
     #endregion //FIELDS
@@ -48,6 +49,20 @@ public class Song
         get => _songArtists;
         set => _songArtists = value;
     }
+    /// <summary>
+    /// Returns Artists as a string separated by commas (for LibraryDetailPage)
+    /// </summary>
+    public string? SongArtistsAsString
+    {
+        get
+        {
+            if (_songArtists != null)
+            {
+                return string.Join(", ", _songArtists);
+            }
+            return "";
+        }
+    }
 
     public string? SongDuration
     {
@@ -71,14 +86,15 @@ public class Song
 
     #region CONSTRUCTORS
 
-    public Song(string songTitle, string songDescription, List<string> songArtist, string songDuration, string youtubeUrl, Image thumbnail)
+    public Song(string songTitle, string songDescription, List<string> songArtists, string songDuration, string youtubeUrl, Image thumbnail)
     {
-        SongTitle = songTitle;
-        SongDescription = songDescription;
-        SongArtists = songArtist;
-        SongDuration = songDuration;
-        SongURL = youtubeUrl;
-        Thumbnail = thumbnail;
+        _songID = Guid.NewGuid();
+        _songTitle = songTitle;
+        _songDescription = songDescription;
+        _songArtists = songArtists;
+        _songDuration = songDuration;
+        _songYoutubeURL = youtubeUrl;
+        _thumbnail = thumbnail;
         
     }
 
@@ -86,7 +102,6 @@ public class Song
     {
         _songID = Guid.NewGuid();
     }
-
 
 
     #endregion //CONSTRUCTORS

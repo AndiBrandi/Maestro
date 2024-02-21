@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.Services;
 using Maestro.Contracts.ViewModels;
 using Maestro.Core.Contracts.Services;
+using Maestro.Helpers;
 using Maestro.Models;
 
 namespace Maestro.ViewModels;
@@ -35,18 +36,10 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
         //}
 
         //Test data
-        Playlists.Add(new Playlist
+        foreach (var playlist in SampleData.SamplePlaylists)
         {
-            PlaylistName = "Name1",
-            PlaylistDescription = "Description1",
-            SongList = new List<Song>
-            {
-                new()
-                {
-                    SongTitle = "Title1",
-                }
-            }
-        });
+            Playlists.Add(playlist);
+        }
 
     }
 

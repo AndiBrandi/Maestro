@@ -47,7 +47,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="70"
-                            
+                            Glyph="&#xE774;"
                             AutomationProperties.Name="{x:Bind ViewModel.Item.PlaylistName}" />
                         <!--Glyph="{x:Bind ViewModel.Item.Symbol}"     Ein zeile darüber einfügen --> 
                     </Grid>
@@ -67,13 +67,18 @@
                         </StackPanel>
 
                         <StackPanel x:Name="orderDateGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Order date" />
+                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="ID" />
                             <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistID}" />
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel x:Name="propertiesGroup2" RelativePanel.Below="propertiesGroup1">
 
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Total Duration" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistName}" />
+                        </StackPanel>
+                        
                         <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
                             <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Description" />
                             <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
