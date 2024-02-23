@@ -6,7 +6,6 @@ using CommunityToolkit.Mvvm.Input;
 
 using Maestro.Contracts.Services;
 using Maestro.Helpers;
-
 using Microsoft.UI.Xaml;
 
 using Windows.ApplicationModel;
@@ -19,6 +18,7 @@ public partial class SettingsViewModel : ObservableRecipient
 
     [ObservableProperty]
     private ElementTheme _elementTheme;
+
 
     //[ObservableProperty]
     //private bool _isWindowAlwaysOnTopChecked;

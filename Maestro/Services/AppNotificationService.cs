@@ -2,7 +2,6 @@
 using System.Web;
 
 using Maestro.Contracts.Services;
-using Maestro.ViewModels;
 
 using Microsoft.Windows.AppNotifications;
 

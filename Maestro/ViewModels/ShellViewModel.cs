@@ -12,6 +12,7 @@ public partial class ShellViewModel : ObservableRecipient
     [ObservableProperty]
     private bool isBackEnabled;
 
+
     [ObservableProperty]
     private object? selected;
 
@@ -24,6 +25,7 @@ public partial class ShellViewModel : ObservableRecipient
     {
         get;
     }
+
 
     public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService)
     {

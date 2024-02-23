@@ -22,7 +22,7 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         CommandCopyToClipboard = new RelayCommand(ExecuteCopyToClipboard);
     }
 
-    public async void OnNavigatedTo(object parameter)
+    public void OnNavigatedTo(object parameter)
     {
         AllSongs.Clear();
 

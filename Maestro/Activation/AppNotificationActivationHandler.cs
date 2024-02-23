@@ -1,10 +1,8 @@
 ﻿using Maestro.Contracts.Services;
-using Maestro.ViewModels;
 
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
-using Microsoft.Windows.AppNotifications;
 
 namespace Maestro.Activation;
 

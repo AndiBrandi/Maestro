@@ -5,8 +5,6 @@ using Maestro.Helpers;
 using Maestro.Models;
 
 using Microsoft.Extensions.Options;
-
-using Windows.ApplicationModel;
 using Windows.Storage;
 
 namespace Maestro.Services;

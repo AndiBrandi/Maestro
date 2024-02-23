@@ -1,12 +1,12 @@
 ﻿using Maestro.Helpers;
-
+using Microsoft.UI.Dispatching;
 using Windows.UI.ViewManagement;
 
 namespace Maestro;
 
 public sealed partial class MainWindow : WindowEx
 {
-    private Microsoft.UI.Dispatching.DispatcherQueue dispatcherQueue;
+    private DispatcherQueue dispatcherQueue;
 
     private UISettings settings;
 
@@ -19,7 +19,7 @@ public sealed partial class MainWindow : WindowEx
         Title = "AppDisplayName".GetLocalized();
 
         // Theme change code picked from https://github.com/microsoft/WinUI-Gallery/pull/1239
-        dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
+        dispatcherQueue = DispatcherQueue.GetForCurrentThread();
         settings = new UISettings();
         settings.ColorValuesChanged += Settings_ColorValuesChanged; // cannot use FrameworkElement.ActualThemeChanged event
     }

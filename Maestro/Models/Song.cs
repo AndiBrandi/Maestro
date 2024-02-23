@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.Models;
 
@@ -95,7 +88,7 @@ public class Song
         _songDuration = songDuration;
         _songYoutubeURL = youtubeUrl;
         _thumbnail = thumbnail;
-        
+
     }
 
     public Song()

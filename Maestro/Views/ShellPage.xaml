@@ -57,6 +57,15 @@
                                     Icon="ViewAll">
                     
                 </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_Bot" 
+                                    helpers:NavigationHelper.NavigateTo="Maestro.ViewModels.MusicbotViewModel"
+                                    Visibility="Collapsed"
+                                    >
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE99A;"/>
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.HeaderTemplate>
                 <DataTemplate>

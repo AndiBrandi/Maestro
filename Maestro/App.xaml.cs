@@ -11,7 +11,6 @@ using Maestro.Views;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 
 namespace Maestro;
@@ -42,7 +41,10 @@ public partial class App : Application
 
     public static WindowEx MainWindow { get; } = new MainWindow();
 
-    public static UIElement? AppTitlebar { get; set; }
+    public static UIElement? AppTitlebar
+    {
+        get; set;
+    }
 
     public App()
     {
@@ -82,6 +84,8 @@ public partial class App : Application
             services.AddTransient<LibraryViewModel>();
             services.AddTransient<LibraryPage>();
             services.AddTransient<QueueViewModel>();
+            services.AddTransient<MusicbotViewModel>();
+            services.AddTransient<MusicbotPage>();
             services.AddTransient<QueuePage>();
             services.AddTransient<ShellPage>();
             services.AddTransient<ShellViewModel>();

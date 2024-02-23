@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 using Maestro.Contracts.ViewModels;
-using Maestro.Core.Contracts.Services;
 using Maestro.Models;
 
 namespace Maestro.ViewModels;
@@ -14,10 +13,10 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
 
     public PlaylistsDetailViewModel()
     {
-       
+
     }
 
-    public async void OnNavigatedTo(object parameter)
+    public void OnNavigatedTo(object parameter)
     {
         if (parameter is Playlist playlist)
         {

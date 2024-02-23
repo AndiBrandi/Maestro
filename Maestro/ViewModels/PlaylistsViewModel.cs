@@ -1,12 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 using Maestro.Contracts.Services;
 using Maestro.Contracts.ViewModels;
-using Maestro.Core.Contracts.Services;
 using Maestro.Helpers;
 using Maestro.Models;
 
@@ -24,7 +22,7 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
 
     }
 
-    public async void OnNavigatedTo(object parameter)
+    public void OnNavigatedTo(object parameter)
     {
         //Source.Clear();
 

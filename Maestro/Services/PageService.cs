@@ -18,6 +18,7 @@ public class PageService : IPageService
         Configure<LibraryViewModel, LibraryPage>();
         Configure<PlaylistsViewModel, PlaylistsPage>();
         Configure<PlaylistsDetailViewModel, PlaylistsDetailPage>();
+        Configure<MusicbotViewModel, MusicbotPage>();
         Configure<SettingsViewModel, SettingsPage>();
     }
 

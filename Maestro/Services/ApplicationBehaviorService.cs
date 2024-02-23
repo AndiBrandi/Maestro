@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Maestro.Contracts.Services;
+﻿using Maestro.Contracts.Services;
 
 namespace Maestro.Services;
 internal class ApplicationBehaviorService : IApplicationBehaviorService
