@@ -13,9 +13,9 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 {
     //The selected Item in the left list
     [ObservableProperty]
-    private Song? selected;
+    private Song? _selected;
 
-    public ObservableCollection<Song> AllSongs { get; private set; } = new ObservableCollection<Song>();
+    public ObservableCollection<Song> AllSongs { get; } = new();
 
     public LibraryViewModel()
     {

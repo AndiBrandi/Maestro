@@ -9,7 +9,7 @@
     <StackPanel>
         <!--Detailansicht (rechts)-->
         <ScrollViewer
-        Name="ForegroundElement"
+        x:Name="ForegroundElement"
         HorizontalAlignment="Stretch"
         VerticalScrollMode="Enabled"
         IsTabStop="True">
