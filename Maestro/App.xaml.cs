@@ -3,7 +3,7 @@ using Maestro.Contracts.Services;
 using Maestro.Core.Contracts.Services;
 using Maestro.Core.Services;
 using Maestro.Helpers;
-using Maestro.Models;
+using Maestro.Core.Models;
 using Maestro.Notifications;
 using Maestro.Services;
 using Maestro.ViewModels;

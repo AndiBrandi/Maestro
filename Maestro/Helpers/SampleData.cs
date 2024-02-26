@@ -1,10 +1,10 @@
-﻿using Maestro.Models;
+﻿using Maestro.Core.Models;
 
 namespace Maestro.Helpers;
 
 internal class SampleData
 {
-
+    
     public static List<Playlist> SamplePlaylists => new List<Playlist>()
     {
         new()

@@ -1,10 +1,10 @@
-﻿using Maestro.Models;
+﻿using Maestro.Core.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.Views;
 
-public sealed partial class LibraryDetailControl : UserControl
+public sealed partial class LibraryDetailControl : Page
 {
     public Song? ListDetailsMenuItem
     {

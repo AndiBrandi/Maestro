@@ -1,4 +1,4 @@
-﻿namespace Maestro.Models;
+﻿namespace Maestro.Core.Models;
 
 public class LocalSettingsOptions
 {

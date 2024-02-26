@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <viewModels:MusicbotViewModel />
+        <viewModels:MusicbotViewModel/>
     </Page.DataContext>
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
@@ -16,8 +16,12 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="The music bot page"/>
             <Button Content="Start Music Bot"
+                    Margin="{StaticResource SmallRightMargin}"
+                    IsEnabled="{x:Bind ViewModel.IsStartEnabled, Mode=TwoWay}"
                     Command="{x:Bind ViewModel.StartMusicBotCommand}"/>
+
             <Button Content="Stop Music Bot"
+                    IsEnabled="{x:Bind ViewModel.IsStopEnabled, Mode=TwoWay}"
                     Command="{x:Bind ViewModel.StopMusicBotCommand}"/>
         </StackPanel>
     </Grid>

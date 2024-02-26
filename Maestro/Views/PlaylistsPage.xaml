@@ -6,8 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:animations="using:CommunityToolkit.WinUI.UI.Animations"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
-    xmlns:models="using:Maestro.Models"
-    xmlns:viewmodels="using:Maestro.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PlaylistsViewModel}"
+    xmlns:viewmodels="using:Maestro.ViewModels"
+    xmlns:models="using:Maestro.Core.Models"
+    d:DataContext="{d:DesignInstance Type=viewmodels:PlaylistsViewModel}"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">

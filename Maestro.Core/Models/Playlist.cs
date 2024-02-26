@@ -1,18 +1,19 @@
-﻿namespace Maestro.Models;
+﻿namespace Maestro.Core.Models;
 
 public class Playlist
 {
-
     #region FIELDS
+
     private readonly Guid _playlistID = Guid.NewGuid();
     private string? _playlistName;
     private string? _playlistDescription;
     private List<Song>? _songList;
+
     #endregion //FIELDS
 
     #region PROPERTIES
 
-    public Guid PlaylistID => _playlistID;      //get ID
+    public Guid PlaylistID => _playlistID; //get ID
 
     public string? PlaylistName
     {
@@ -25,6 +26,7 @@ public class Playlist
         get => _playlistDescription;
         set => _playlistDescription = value;
     }
+
     public List<Song>? SongList
     {
         get => _songList;
@@ -39,6 +41,7 @@ public class Playlist
             {
                 return _songList.Count;
             }
+
             return 0;
         }
     }
@@ -46,6 +49,7 @@ public class Playlist
     #endregion //PROPERTIES
 
     #region CONSTRUCTORS
+
     //public Playlist()
     //{
     //}
@@ -62,10 +66,5 @@ public class Playlist
         _playlistID = Guid.NewGuid();
     }
 
-
-
-
     #endregion //CONSTRCUTORS
-
-
 }

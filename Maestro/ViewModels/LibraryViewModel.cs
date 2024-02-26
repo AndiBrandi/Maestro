@@ -4,8 +4,10 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.ViewModels;
 using Maestro.Helpers;
-using Maestro.Models;
 using Windows.ApplicationModel.DataTransfer;
+using Maestro.Core.Models;
+
+// using Maestro.Core.Models;
 
 namespace Maestro.ViewModels;
 
@@ -13,9 +15,12 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 {
     //The selected Item in the left list
     [ObservableProperty]
-    private Song? _selected;
+    private Maestro.Core.Models.Song? _selected;
 
-    public ObservableCollection<Song> AllSongs { get; } = new();
+    public ObservableCollection<Song?> AllSongs
+    {
+        get;
+    } = new();
 
     public LibraryViewModel()
     {
@@ -47,6 +52,7 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 
     public void EnsureItemSelected()
     {
+        // Selected ??= AllSongs.First();
         Selected ??= AllSongs.First();
     }
 
@@ -61,5 +67,4 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         dataPackage.SetText(Selected?.SongURL);
         Clipboard.SetContent(dataPackage);
     }
-
 }

@@ -5,8 +5,9 @@ using CommunityToolkit.Mvvm.Input;
 
 using Maestro.Contracts.Services;
 using Maestro.Contracts.ViewModels;
+using Maestro.Core.Models;
 using Maestro.Helpers;
-using Maestro.Models;
+
 
 namespace Maestro.ViewModels;
 

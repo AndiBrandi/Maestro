@@ -2,7 +2,6 @@
 
 using Maestro.Contracts.Services;
 using Maestro.ViewModels;
-
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 
@@ -20,7 +19,7 @@ public sealed partial class PlaylistsDetailPage : Page
         ViewModel = App.GetService<PlaylistsDetailViewModel>();
         InitializeComponent();
     }
-
+    
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);

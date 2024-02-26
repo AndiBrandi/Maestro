@@ -1,6 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
-
-namespace Maestro.Models;
+﻿
+namespace Maestro.Core.Models;
 
 public class Song
 {
@@ -12,7 +11,7 @@ public class Song
     private List<string>? _songArtists = new();
     private string? _songDuration = "";
     private string? _songYoutubeURL = "";
-    private Image? _thumbnail;
+    private string? _thumbnailFilePath;
 
     #endregion //FIELDS
 
@@ -68,10 +67,10 @@ public class Song
         get => _songYoutubeURL;
         set => _songYoutubeURL = value;
     }
-    public Image? Thumbnail
+    public string? ThumbnailFilePath
     {
-        get => _thumbnail;
-        set => _thumbnail = value;
+        get => _thumbnailFilePath;
+        set => _thumbnailFilePath = value;
     }
 
     #endregion //PROPERTIES
@@ -79,7 +78,7 @@ public class Song
 
     #region CONSTRUCTORS
 
-    public Song(string songTitle, string songDescription, List<string> songArtists, string songDuration, string youtubeUrl, Image thumbnail)
+    public Song(string songTitle, string songDescription, List<string> songArtists, string songDuration, string youtubeUrl, string thumbnail)
     {
         _songID = Guid.NewGuid();
         _songTitle = songTitle;
@@ -87,7 +86,7 @@ public class Song
         _songArtists = songArtists;
         _songDuration = songDuration;
         _songYoutubeURL = youtubeUrl;
-        _thumbnail = thumbnail;
+        _thumbnailFilePath = thumbnail;
 
     }
 

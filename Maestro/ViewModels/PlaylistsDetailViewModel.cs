@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-
 using Maestro.Contracts.ViewModels;
-using Maestro.Models;
+using Maestro.Core.Models;
 
 namespace Maestro.ViewModels;
 
@@ -9,7 +8,7 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
 {
 
     [ObservableProperty]
-    private Playlist? item;
+    private Maestro.Core.Models.Playlist? item;
 
     public PlaylistsDetailViewModel()
     {

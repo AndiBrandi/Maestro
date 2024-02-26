@@ -2,7 +2,7 @@
 using Maestro.Core.Contracts.Services;
 using Maestro.Core.Helpers;
 using Maestro.Helpers;
-using Maestro.Models;
+using Maestro.Core.Models;
 
 using Microsoft.Extensions.Options;
 using Windows.Storage;

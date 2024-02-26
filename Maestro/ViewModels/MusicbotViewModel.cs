@@ -2,13 +2,17 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using Maestro.Contracts.ViewModels;
-using Maestro.DiscordBot;
-
 namespace Maestro.ViewModels;
 
 public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
 {
-    private static DiscordBot.DiscordBot Bot = new();
+    private DiscordBot.DiscordBot Bot;
+
+    [ObservableProperty]
+    private bool _isStartEnabled;
+    [ObservableProperty]
+    private bool _isStopEnabled;
+
     public ICommand StartMusicBotCommand { get; private set; }
     public ICommand StopMusicBotCommand { get; private set; }
 
@@ -17,17 +21,23 @@ public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
     {
         StartMusicBotCommand = new RelayCommand(StartMusicBot);
         StopMusicBotCommand = new RelayCommand(StopMusicBot);
+        Bot = new DiscordBot.DiscordBot();
+        IsStartEnabled = true;
+        IsStopEnabled = false;
     }
 
     private async void StartMusicBot()
     {
-        await Bot.Main();
+        Bot.Start();
+        IsStartEnabled = Bot.IsRunningNegated;
+        IsStopEnabled = Bot.IsRunning;
     }
     
     private void StopMusicBot()
     {
         Bot.Stop();
-        
+        IsStartEnabled = Bot.IsRunningNegated;
+        IsStopEnabled = Bot.IsRunning;
     }
 
     public void OnNavigatedTo(object parameter)
