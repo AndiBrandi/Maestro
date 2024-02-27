@@ -8,7 +8,7 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
 {
 
     [ObservableProperty]
-    private Maestro.Core.Models.Playlist? item;
+    private Playlist? item;
 
     public PlaylistsDetailViewModel()
     {

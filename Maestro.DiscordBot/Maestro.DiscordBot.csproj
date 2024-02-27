@@ -15,4 +15,8 @@
       <ProjectReference Include="..\Maestro.Core\Maestro.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ApplicationCommandsGlobal\" />
+    </ItemGroup>
+
 </Project>

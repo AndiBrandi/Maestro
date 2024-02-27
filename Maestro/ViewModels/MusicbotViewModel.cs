@@ -21,7 +21,7 @@ public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
     {
         StartMusicBotCommand = new RelayCommand(StartMusicBot);
         StopMusicBotCommand = new RelayCommand(StopMusicBot);
-        Bot = new DiscordBot.DiscordBot();
+        Bot = new DiscordBot.DiscordBot(685894739681345621);
         IsStartEnabled = true;
         IsStopEnabled = false;
     }

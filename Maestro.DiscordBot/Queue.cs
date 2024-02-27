@@ -10,7 +10,6 @@ namespace Maestro.DiscordBot
     {
         private List<Song> songs = new();
         
-        
         public void AddSong(Song song)
         {
             songs.Add(song);
@@ -28,8 +27,7 @@ namespace Maestro.DiscordBot
 
         public void Shuffle()
         {
-            var random = new Random();
-            songs = songs.OrderBy(s => random.Next()).ToList();
+            songs = songs.OrderBy(s => new Random().Next()).ToList();
         }
     }
 }

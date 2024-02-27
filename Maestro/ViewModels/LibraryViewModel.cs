@@ -15,7 +15,7 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 {
     //The selected Item in the left list
     [ObservableProperty]
-    private Maestro.Core.Models.Song? _selected;
+    private Song? _selected;
 
     public ObservableCollection<Song?> AllSongs
     {
