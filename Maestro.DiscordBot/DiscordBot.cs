@@ -3,9 +3,11 @@ using Discord;
 using Discord.WebSocket;
 using System.Threading;
 using Discord.Net;
+using Lavalink4NET.Extensions;
 using Maestro.DiscordBot.ApplicationCommands;
 using Maestro.DiscordBot.Interfaces;
 using Maestro.DiscordBot.Services;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 
 namespace Maestro.DiscordBot;
@@ -39,6 +41,9 @@ public class DiscordBot
         _player = new Player();
         IsRunning = false;
         IsRunningNegated = true;
+        var builder = new HostApplicationBuilder();
+        builder.Services.AddLavalink();
+        var app = builder.Build();
     }
 
     #endregion

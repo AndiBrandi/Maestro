@@ -6,9 +6,10 @@ namespace Maestro.DiscordBot.Services;
 public static class CommandService
 {
     // Dictionary to map string-to-Type
-    private static Dictionary<string, Type> commandDict = new Dictionary<string, Type>
+    private static Dictionary<string, Type> commandDict = new()
     {
-        { "CommandA", typeof(PingCommand) }
+        { "ping", typeof(PingCommand) },
+        { "play", typeof(PlayCommand) }
     };
 
     // Method to create command instances dynamically

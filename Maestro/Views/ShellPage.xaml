@@ -89,9 +89,30 @@
                     </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                 </behaviors:NavigationViewHeaderBehavior>
             </i:Interaction.Behaviors>
-            <Grid Margin="{StaticResource NavigationViewPageContentMargin}">
-                <Frame x:Name="NavigationFrame" />
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Frame x:Name="NavigationFrame" Grid.Row="0"
+                       Margin="{StaticResource NavigationViewPageContentMargin}"/>
+                <Border Height="100"
+                        Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button Margin="{StaticResource SmallLeftRightMargin}">
+                            <FontIcon Glyph="&#xF8AC;" FontSize="20"/>
+                        </Button>
+                        <Button Margin="{StaticResource SmallLeftRightMargin}">
+                            <FontIcon Glyph="&#xF5B0;"/>
+                        </Button>
+                        <Button Margin="{StaticResource SmallLeftRightMargin}">
+                            <FontIcon Glyph="&#xF8AD;"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
             </Grid>
+            
         </NavigationView>
     </Grid>
 </Page>

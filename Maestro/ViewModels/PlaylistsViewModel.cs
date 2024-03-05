@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-
+using System.Reactive;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -7,6 +7,7 @@ using Maestro.Contracts.Services;
 using Maestro.Contracts.ViewModels;
 using Maestro.Core.Models;
 using Maestro.Helpers;
+using Maestro.Notifications;
 
 
 namespace Maestro.ViewModels;
@@ -33,6 +34,8 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
         //{
         //    Source.Add(item);
         //}
+        
+        //TestNotification
 
         //Test data
         foreach (var playlist in SampleData.SamplePlaylists)

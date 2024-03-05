@@ -1,4 +1,5 @@
-﻿using Maestro.Activation;
+﻿using Lavalink4NET.Extensions;
+using Maestro.Activation;
 using Maestro.Contracts.Services;
 using Maestro.Core.Contracts.Services;
 using Maestro.Core.Services;
@@ -89,6 +90,7 @@ public partial class App : Application
             services.AddTransient<QueuePage>();
             services.AddTransient<ShellPage>();
             services.AddTransient<ShellViewModel>();
+            
 
             // Configuration
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));

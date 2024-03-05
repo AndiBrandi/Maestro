@@ -8,17 +8,7 @@
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
 
-
-        <StackPanel Orientation="Horizontal">
-            <Button Margin="{StaticResource SmallLeftRightMargin}">
-                <FontIcon Glyph="&#xF8AC;" FontSize="20"/>
-            </Button>
-            <Button Margin="{StaticResource SmallLeftRightMargin}">
-                <FontIcon Glyph="&#xF5B0;"/>
-            </Button>
-            <Button Margin="{StaticResource SmallLeftRightMargin}">
-                <FontIcon Glyph="&#xF8AD;"/>
-            </Button>
-        </StackPanel>
+        
+        
     </Grid>
 </Page>
