@@ -61,7 +61,7 @@ public partial class App : Application
 
             // Other Activation Handlers
             services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
-
+                                                                                                                                                                                                
             // Services
             services.AddSingleton<IAppNotificationService, AppNotificationService>();
             services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
@@ -75,21 +75,25 @@ public partial class App : Application
             // Core Services
             services.AddSingleton<IFileService, FileService>();
 
-            // Views and ViewModels
-            services.AddTransient<SettingsViewModel>();
+            // Views
             services.AddTransient<SettingsPage>();
-            services.AddTransient<PlaylistsDetailViewModel>();
             services.AddTransient<PlaylistsDetailPage>();
-            services.AddTransient<PlaylistsViewModel>();
             services.AddTransient<PlaylistsPage>();
-            services.AddTransient<LibraryViewModel>();
             services.AddTransient<LibraryPage>();
-            services.AddTransient<QueueViewModel>();
-            services.AddTransient<MusicbotViewModel>();
             services.AddTransient<MusicbotPage>();
             services.AddTransient<QueuePage>();
             services.AddTransient<ShellPage>();
+            services.AddTransient<MediaPlayerBandControl>();
+
+            //ViewModels
+            services.AddTransient<SettingsViewModel>();
+            services.AddTransient<PlaylistsDetailViewModel>();
+            services.AddTransient<PlaylistsViewModel>();
             services.AddTransient<ShellViewModel>();
+            services.AddTransient<MusicbotViewModel>();
+            services.AddTransient<QueueViewModel>();
+            services.AddTransient<LibraryViewModel>();
+            services.AddTransient<MediaPlayerBandViewModel>();
             
 
             // Configuration
@@ -113,7 +117,7 @@ public partial class App : Application
         base.OnLaunched(args);
 
         //((OverlappedPresenter)App.MainWindow.Presenter).IsAlwaysOnTop = true; //This let's the window always stay on top of all other windows
-        App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
+        //App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
 
         await App.GetService<IActivationService>().ActivateAsync(args);
     }

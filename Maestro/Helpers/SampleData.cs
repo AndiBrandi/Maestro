@@ -1,11 +1,12 @@
-﻿using Maestro.Core.Models;
+﻿using System.Collections.ObjectModel;
+using Maestro.Core.Models;
 
 namespace Maestro.Helpers;
 
 internal class SampleData
 {
     
-    public static List<Playlist> SamplePlaylists => new List<Playlist>()
+    public static List<Playlist> SamplePlaylists => new()
     {
         new()
     {
@@ -27,6 +28,42 @@ internal class SampleData
     },
     new() {
         PlaylistName = "Playlist4",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist5",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist6",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist7",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist8",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist9",
+        PlaylistDescription = "Description4",
+        SongList = SampleSongs
+
+    },
+    new() {
+        PlaylistName = "Playlist10",
         PlaylistDescription = "Description4",
         SongList = SampleSongs
 
@@ -67,6 +104,54 @@ internal class SampleData
                 SongArtists = new List<string> { "Avicii" },
                 SongDuration = "3:18",
                 SongURL = "https://www.youtube.com/watch?v=_ovdm2yX4MA"
+            },
+            new()
+            {
+                SongTitle = "Lost Sky - Vision pt. ll ~ Where We Started (MASHUP)",
+                SongDescription = "Vision, where we started mashup",
+                SongArtists = new List<string> { "Lost Sky" },
+                SongDuration = "3:42",
+                SongURL = "https://www.youtube.com/watch?v=0TnaERamI-Q"
+            },
+            new()
+            {
+                SongTitle = "Candyland (DR.L & JWoods Remix)",
+                SongDescription = "Candyland remix",
+                SongArtists = new List<string> { "Tobu", "DR.L", "JWoods" },
+                SongDuration = "3:28",
+                SongURL = "https://www.youtube.com/watch?v=sJxkj_gTITs"
+            },
+            new()
+            {
+                SongTitle = "Eiffel 65 - Blue (Black Lullaby Instrumental Remix 2020)",
+                SongDescription = "Blue black lullaby",
+                SongArtists = new List<string> { "Nightek1", "Eiffel 65" },
+                SongDuration = "3:25",
+                SongURL = "https://www.youtube.com/watch?v=wFL_j0cdBm4"
+            },
+            new()
+            {
+                SongTitle = "Popcorn Remix [HD]",
+                SongDescription = "Popcorn remix",
+                SongArtists = new List<string> { "Johnny Brave", "DJ Helli" },
+                SongDuration = "6:13",
+                SongURL = "https://www.youtube.com/watch?v=I3sKIV6KugA"
+            },
+            new()
+            {
+                SongTitle = "This Is What It Feels Like",
+                SongDescription = "this is what it feels like",
+                SongArtists = new List<string> { "Armin van Buuren", "Trevor Guthrie" },
+                SongDuration = "3:24",
+                SongURL = "https://www.youtube.com/watch?v=1SN3-qR3Bq0"
+            },
+            new()
+            {
+                SongTitle = "Owl City - Fireflies (Lyrics)",
+                SongDescription = "fireflies",
+                SongArtists = new List<string> { "Owl City" },
+                SongDuration = "3:44",
+                SongURL = "https://www.youtube.com/watch?v=QBgl4rVz3Ks"
             }
         };
 };

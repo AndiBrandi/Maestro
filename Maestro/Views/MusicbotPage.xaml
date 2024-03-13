@@ -13,7 +13,12 @@
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
 
-        <StackPanel Orientation="Horizontal">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="The music bot page"/>
             <Button Content="Start Music Bot"
                     Margin="{StaticResource SmallRightMargin}"
@@ -24,5 +29,6 @@
                     IsEnabled="{x:Bind ViewModel.IsStopEnabled, Mode=TwoWay}"
                     Command="{x:Bind ViewModel.StopMusicBotCommand}"/>
         </StackPanel>
+        <TextBox PlaceholderText="Bot token" Text="{x:Bind ViewModel.BotToken, Mode=TwoWay}" Grid.Row="1"/>
     </Grid>
 </Page>

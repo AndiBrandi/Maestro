@@ -8,6 +8,7 @@ public class Song
     private Guid _songID;
     private string? _songTitle = "";
     private string? _songDescription = "";
+    private string? _songAlbum = null;
     private List<string>? _songArtists = new();
     private string? _songDuration = "";
     private string? _songYoutubeURL = "";
@@ -36,11 +37,18 @@ public class Song
         set => _songDescription = value;
     }
 
+    public string? SongAlbum
+    {
+        get => _songAlbum ?? _songTitle;
+        set => _songAlbum = value;
+    }
+
     public List<string>? SongArtists
     {
         get => _songArtists;
         set => _songArtists = value;
     }
+
     /// <summary>
     /// Returns Artists as a string separated by commas (for LibraryDetailPage)
     /// </summary>

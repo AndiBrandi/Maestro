@@ -13,26 +13,28 @@ public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
     [ObservableProperty]
     private bool _isStopEnabled;
 
-    public ICommand StartMusicBotCommand { get; private set; }
-    public ICommand StopMusicBotCommand { get; private set; }
-
+    [ObservableProperty]
+    private string _botToken;
 
     public MusicbotViewModel()
     {
-        StartMusicBotCommand = new RelayCommand(StartMusicBot);
-        StopMusicBotCommand = new RelayCommand(StopMusicBot);
-        Bot = new DiscordBot.DiscordBot(685894739681345621);
+
         IsStartEnabled = true;
         IsStopEnabled = false;
+
+        BotToken = "MTIxMTAzMDkwMjI4NTU0MTQxNg.GuA_C9._cMaUP3vpSO1XSggu83l33Z4MucrTPgLusA02U";
     }
 
+    [RelayCommand]
     private async void StartMusicBot()
     {
+        Bot = new DiscordBot.DiscordBot(685894739681345621, BotToken);
         Bot.Start();
         IsStartEnabled = Bot.IsRunningNegated;
         IsStopEnabled = Bot.IsRunning;
     }
-    
+
+    [RelayCommand]
     private void StopMusicBot()
     {
         Bot.Stop();

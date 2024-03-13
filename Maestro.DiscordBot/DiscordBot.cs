@@ -19,8 +19,8 @@ public class DiscordBot
     private static DiscordSocketClient _client;
     private static Player _player;
     private readonly ulong _guildId;
+    private string _botToken; //= "MTIxMTAzMDkwMjI4NTU0MTQxNg.GuA_C9._cMaUP3vpSO1XSggu83l33Z4MucrTPgLusA02U";
 
-    private static string BotToken = "MTIxMTAzMDkwMjI4NTU0MTQxNg.GuA_C9._cMaUP3vpSO1XSggu83l33Z4MucrTPgLusA02U";
     public bool IsRunning;
     public bool IsRunningNegated;
 
@@ -31,7 +31,7 @@ public class DiscordBot
     /// <summary>
     /// Represents a Discord bot that can be started and stopped.
     /// </summary>
-    public DiscordBot(ulong guildId)
+    public DiscordBot(ulong guildId, string botToken)
     {
         _client = new DiscordSocketClient();
         _client.Log += Log;
@@ -44,6 +44,7 @@ public class DiscordBot
         var builder = new HostApplicationBuilder();
         builder.Services.AddLavalink();
         var app = builder.Build();
+        _botToken = botToken;
     }
 
     #endregion
@@ -55,10 +56,12 @@ public class DiscordBot
     /// </summary>
     public async void Start()
     {
+        if (_botToken == string.Empty)
+            throw new InvalidOperationException("Es muss ein Token angegeben werden");
+
         IsRunning = true;
         IsRunningNegated = false;
-        var token = BotToken;
-        await _client.LoginAsync(TokenType.Bot, token);
+        await _client.LoginAsync(TokenType.Bot, _botToken);
         await _client.StartAsync();
         await Main();
     }

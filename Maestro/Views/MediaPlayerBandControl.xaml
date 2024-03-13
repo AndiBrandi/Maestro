@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Maestro.Views.MediaPlayerBandControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Maestro.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:Maestro.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MediaPlayerBandViewModel}"
+    mc:Ignorable="d">
+
+    <Border Background="{StaticResource ControlAltFillColorSecondary}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.RowSpan="3" VerticalAlignment="Center" Margin="{StaticResource SmallLeftMargin}">
+
+                <TextBlock Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource SongLabel}"
+                           Text="{x:Bind ViewModel.CurrentSong.SongTitle}"
+                           />
+                <TextBlock Grid.Column="0"
+                           Grid.Row="1"
+                           Style="{StaticResource AdditionalInfoLabel}"
+                           Text="{x:Bind ViewModel.CurrentSong.SongArtistsAsString}"
+                           Margin="{StaticResource XXSmallTopMargin}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1">
+                <Button Margin="{StaticResource SmallLeftRightMargin}"
+                        Command="{x:Bind ViewModel.ReplayClickedCommand}">
+                    <FontIcon Glyph="&#xF8AC;" FontSize="20"/>
+                </Button>
+                <Button Margin="{StaticResource SmallLeftRightMargin}"
+                        Command="{x:Bind ViewModel.PlayClickedCommand}">
+                    <FontIcon Glyph="&#xF5B0;"/>
+                </Button>
+                <Button Margin="{StaticResource SmallLeftRightMargin}"
+                        Command="{x:Bind ViewModel.SkipClickedCommand}">
+                    <FontIcon Glyph="&#xF8AD;"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

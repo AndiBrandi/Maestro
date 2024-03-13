@@ -16,6 +16,7 @@
 	<LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Views\MediaPlayerBandControl.xaml" />
     <None Remove="Views\MusicbotPage.xaml" />
   </ItemGroup>
 
@@ -41,6 +42,9 @@
 	<None Update="appsettings.json">
 	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
+	<Page Update="Views\MediaPlayerBandControl.xaml">
+	  <Generator>MSBuild:Compile</Generator>
+	</Page>
   </ItemGroup>
 
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">

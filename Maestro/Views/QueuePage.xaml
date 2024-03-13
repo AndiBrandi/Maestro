@@ -4,11 +4,103 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Maestro.Core.Models"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="SongItemTemplate" x:DataType="models:Song">
+            <Grid Height="60">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Column 0 Icon-->
+                <FontIcon Glyph="&#xE8A5;"
+                              Grid.Row="0"
+                              Grid.RowSpan="2"
+                              Grid.Column="0"/>
+
+                <!--Column 1 Song & Artists-->
+                <StackPanel Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Margin="{StaticResource SmallLeftMargin}">
+                    <TextBlock Text="{x:Bind SongTitle}"
+                               VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"
+                               Style="{StaticResource SongLabel}"/>
+
+                    <TextBlock Text="{x:Bind SongArtistsAsString}"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource AdditionalInfoLabel}"/>
+                </StackPanel>
+                <!--Column 2 Album-->
+                <TextBlock Text="{x:Bind SongAlbum}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="{StaticResource MediumLeftRightMargin}"
+                               Grid.Row="0"
+                               Grid.RowSpan="2"
+                               Grid.Column="2"/>
+
+                <!--Column 3 Duration-->
+                <TextBlock Text="{x:Bind SongDuration}"
+                               VerticalAlignment="Center"
+                               Grid.Row="0"
+                               Grid.RowSpan="2"
+                               Grid.Column="3"
+                               Margin="{StaticResource SmallRightMargin}"/>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ListHeaderTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="#" Grid.Column="0"  Grid.Row="0" FontSize="18" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                <TextBlock Text="Title" Grid.Column="1" Grid.Row="0" Margin="16,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="Album" Grid.Column="2" Grid.Row="0" Margin="25,0,0,0" VerticalAlignment="Center"/>
+                <FontIcon Glyph="&#xE823;" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,26,0"/>
+
+                <Rectangle HorizontalAlignment="Stretch" Height="1.5" Grid.ColumnSpan="4" Grid.Row="1"
+                           Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
+                           Margin="0,5,0,0"/>
+
+            </Grid>
+            
+        </DataTemplate>
+        
+    </Page.Resources>
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
 
-        
-        
+        <ListView SelectionMode="Single"
+                  ItemsSource="{x:Bind ViewModel.SongQueue}"
+                  ItemTemplate="{StaticResource SongItemTemplate}"
+                  HeaderTemplate="{StaticResource ListHeaderTemplate}">
+        </ListView>
+
     </Grid>
+
+
 </Page>
