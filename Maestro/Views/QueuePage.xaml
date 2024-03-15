@@ -5,6 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Maestro.Core.Models"
+    xmlns:viewmodels="using:Maestro.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:QueueViewModel}"
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="SongItemTemplate" x:DataType="models:Song">
@@ -94,8 +96,25 @@
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="0"
+                  x:Name="sourceComboBox"
+                  Margin="0,-50,10,10"
+                  ItemsSource="{x:Bind ViewModel.AvailableSources}"
+                  MinWidth="150"
+                  SelectedItem="{x:Bind ViewModel.SelectedSource, Mode=TwoWay}"
+                  PlaceholderText="Choose a Source"
+                  SelectionChanged="{x:Bind ViewModel.SourceComboBox_SelectionChanged }"
+                  
+                  HorizontalAlignment="Right"/>
+
         <ListView SelectionMode="Single"
-                  ItemsSource="{x:Bind ViewModel.SongQueue}"
+                  Grid.Row="1"
+                  ItemsSource="{x:Bind ViewModel.SongQueue, Mode=OneWay}"
                   ItemTemplate="{StaticResource SongItemTemplate}"
                   HeaderTemplate="{StaticResource ListHeaderTemplate}">
         </ListView>

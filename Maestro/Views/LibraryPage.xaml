@@ -71,6 +71,18 @@
                     Text="{Binding}" />
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="SongListHeader" x:DataType="Flyout">
+            <Grid Height="60">
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Add"/>
+                        <TextBlock Text="Add new Song"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </DataTemplate>
+
     </Page.Resources>
 
 
@@ -79,7 +91,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <!--641 is the default CompactModeThresholdWidth in NavigationView--> 
+                        <!--641 is the default CompactModeThresholdWidth in NavigationView-->
                         <AdaptiveTrigger MinWindowWidth="641" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
@@ -93,8 +105,9 @@
             x:Name="ListDetailsViewControl"
             BackButtonBehavior="Manual"
             Background="Transparent"
-            BorderBrush="Transparent"
             DetailsTemplate="{StaticResource DetailsTemplate}"
+            ListHeader="Songs"
+            ContextFlyout="{StaticResource SongListHeader}"
             ItemsSource="{x:Bind ViewModel.AllSongs}"
             ItemTemplate="{StaticResource ItemTemplate}"
             ListHeaderTemplate="{StaticResource MinimalListHeaderTemplate}"

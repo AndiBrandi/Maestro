@@ -39,6 +39,8 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         //    SampleItems.Add(item);
         //}
 
+        
+
         //Test data
         foreach (var song in SampleData.SampleSongs)
         {

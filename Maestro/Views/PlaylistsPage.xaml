@@ -18,7 +18,7 @@
             DesiredWidth="180"
             ItemHeight="160"
             IsItemClickEnabled="True"
-            ItemClickCommand="{x:Bind ViewModel.ItemClickCommand}"
+            ItemClickCommand="{x:Bind ViewModel.ItemClickedCommand}"
             ItemsSource="{x:Bind ViewModel.Playlists,Mode=OneWay}"
             SelectionMode="None"
             StretchContentForSingleRow="False">

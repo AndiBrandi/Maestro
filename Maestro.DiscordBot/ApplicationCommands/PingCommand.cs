@@ -11,7 +11,7 @@ public class PingCommand : SlashCommandBase
     public override string Name => "ping";
     public override string Description => "Ping command";
 
-    public async override Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command)
+    public async override Task ExecuteCommand(Bot bot, SocketSlashCommand command)
     {
         await command.RespondAsync("pong");
     }

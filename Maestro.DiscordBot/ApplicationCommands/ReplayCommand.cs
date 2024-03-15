@@ -13,7 +13,7 @@ public class ReplayCommand : SlashCommandBase
 
     public override string Description => "Replays the current song";
 
-    public override Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command)
+    public override Task ExecuteCommand(Bot bot, SocketSlashCommand command)
     {
         throw new NotImplementedException();
     }

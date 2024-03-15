@@ -17,4 +17,6 @@ public sealed partial class QueuePage : Page
         InitializeComponent();
 
     }
+
+    
 }

@@ -28,5 +28,5 @@ public abstract class SlashCommandBase : ISlashCommand
     }
 
     /// <inheritdoc/>
-    public abstract Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command);
+    public abstract Task ExecuteCommand(Bot bot, SocketSlashCommand command);
 }

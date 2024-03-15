@@ -12,12 +12,12 @@ using Newtonsoft.Json;
 
 namespace Maestro.DiscordBot;
 
-public class DiscordBot
+public class Bot
 {
     #region FIELDS
 
     private static DiscordSocketClient _client;
-    private static Player _player;
+    public static Player Player;
     private readonly ulong _guildId;
     private string _botToken; //= "MTIxMTAzMDkwMjI4NTU0MTQxNg.GuA_C9._cMaUP3vpSO1XSggu83l33Z4MucrTPgLusA02U";
 
@@ -31,14 +31,14 @@ public class DiscordBot
     /// <summary>
     /// Represents a Discord bot that can be started and stopped.
     /// </summary>
-    public DiscordBot(ulong guildId, string botToken)
+    public Bot(ulong guildId, string botToken)
     {
         _client = new DiscordSocketClient();
         _client.Log += Log;
         _client.Ready += Client_Ready;
         _guildId = guildId;
         // _client.SlashCommandExecuted = SlashCommandHandler
-        _player = new Player();
+        Player = new Player();
         IsRunning = false;
         IsRunningNegated = true;
         var builder = new HostApplicationBuilder();

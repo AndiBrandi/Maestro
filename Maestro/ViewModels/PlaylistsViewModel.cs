@@ -2,7 +2,6 @@
 using System.Reactive;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
 using Maestro.Contracts.Services;
 using Maestro.Contracts.ViewModels;
 using Maestro.Core.Models;
@@ -21,20 +20,17 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
     public PlaylistsViewModel(INavigationService navigationService)
     {
         _navigationService = navigationService;
-
     }
 
     public void OnNavigatedTo(object parameter)
     {
-        //Source.Clear();
-
         //// TODO: Replace with real data.
         //var data = await _sampleDataService.GetContentGridDataAsync();
         //foreach (var item in data)
         //{
         //    Source.Add(item);
         //}
-        
+
         //TestNotification
 
         //Test data
@@ -42,15 +38,15 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
         {
             Playlists.Add(playlist);
         }
-
     }
 
     public void OnNavigatedFrom()
     {
+    
     }
-
+    
     [RelayCommand]
-    private void OnItemClick(Playlist? clickedItem)
+    private void ItemClicked(Playlist? clickedItem)
     {
         if (clickedItem != null)
         {

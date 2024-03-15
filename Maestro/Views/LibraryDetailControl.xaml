@@ -14,17 +14,18 @@
         VerticalScrollMode="Enabled"
         IsTabStop="True">
             <StackPanel HorizontalAlignment="Left">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <FontIcon
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="48"
-                      />
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Glyph="&#xEC4F;"
+                        FontSize="48"/>
                     <TextBlock
-                    Margin="{StaticResource SmallLeftMargin}"
-                    VerticalAlignment="Center"
-                    Text="{x:Bind ListDetailsMenuItem.SongTitle, Mode=OneWay}"
-                    Style="{ThemeResource TitleTextBlockStyle}" />
+                        Margin="{StaticResource SmallLeftMargin}"
+                        TextWrapping="WrapWholeWords"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind ListDetailsMenuItem.SongTitle, Mode=OneWay}"
+                        Style="{ThemeResource TitleTextBlockStyle}" />
                 </StackPanel>
                 <StackPanel Padding="0,15,0,0">
                     <TextBlock Text="Artists" Style="{StaticResource DetailSubTitleStyle}" />

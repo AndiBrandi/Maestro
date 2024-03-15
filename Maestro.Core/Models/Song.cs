@@ -106,4 +106,9 @@ public class Song
 
     #endregion //CONSTRUCTORS
 
+    public override string ToString()
+    {
+        return SongTitle;
+    }
+
 }

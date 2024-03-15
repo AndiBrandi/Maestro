@@ -13,7 +13,7 @@ public class SkipCommand : SlashCommandBase
 
     public override string Description => "Skips the current playing song";
 
-    public override Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command)
+    public override Task ExecuteCommand(Bot bot, SocketSlashCommand command)
     {
 
         throw new NotImplementedException();

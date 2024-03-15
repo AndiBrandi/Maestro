@@ -42,5 +42,5 @@ public interface ISlashCommand
     /// </summary>
     /// <param name="bot">The Discord bot instance.</param>
     /// <param name="command">The slash command to execute.</param>
-    Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command);
+    Task ExecuteCommand(Bot bot, SocketSlashCommand command);
 }

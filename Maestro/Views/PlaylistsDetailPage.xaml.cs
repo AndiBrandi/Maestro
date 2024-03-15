@@ -3,6 +3,7 @@
 using Maestro.Contracts.Services;
 using Maestro.ViewModels;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Navigation;
 
 namespace Maestro.Views;
@@ -39,4 +40,5 @@ public sealed partial class PlaylistsDetailPage : Page
             }
         }
     }
+
 }

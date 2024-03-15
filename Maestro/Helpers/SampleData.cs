@@ -5,7 +5,7 @@ namespace Maestro.Helpers;
 
 internal class SampleData
 {
-    
+
     public static List<Playlist> SamplePlaylists => new()
     {
         new()
@@ -154,4 +154,40 @@ internal class SampleData
                 SongURL = "https://www.youtube.com/watch?v=QBgl4rVz3Ks"
             }
         };
-};
+
+    public static List<Song> SampleSongs2 => new()
+    {
+        new()
+        {
+            SongTitle = "NEFFEX - Numb [Copyright Free] No.77",
+            SongDescription = "numb neffex",
+            SongArtists = new List<string> { "Neffex" },
+            SongDuration = "2:24",
+            SongURL = "https://www.youtube.com/watch?v=lJkEF0_QigU"
+        },
+        new()
+        {
+            SongTitle = "Alan Walker - Alone",
+            SongDescription = "alone",
+            SongArtists = new List<string> { "Alan Walker" },
+            SongDuration = "2:43",
+            SongURL = "https://www.youtube.com/watch?v=1-xGerv5FOk"
+        },
+        new()
+        {
+            SongTitle = "Alan Walker, Dash Berlin & Vikkstar - Better Off (Alone, Pt. III) - Official Music Video ",
+            SongDescription = "alone pt3",
+            SongArtists = new List<string> { "Alan Walker", "Dash Berlin", "Vikkstar" },
+            SongDuration = "2:31",
+            SongURL = "https://www.youtube.com/watch?v=ouEl3qTLc0M"
+        },
+        new()
+        {
+            SongTitle = "TheFatRat - Unity",
+            SongDescription = "unity",
+            SongArtists = new List<string> { "TheFatRat" },
+            SongDuration = "4:09",
+            SongURL = "https://www.youtube.com/watch?v=n8X9_MgEdCg"
+        },
+    };
+    };

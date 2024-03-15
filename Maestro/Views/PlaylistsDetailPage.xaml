@@ -4,15 +4,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Maestro.Core.Models"
     xmlns:viewModels="using:Maestro.ViewModels"
     mc:Ignorable="d">
-    
+
     <Page.DataContext>
         <viewModels:PlaylistsDetailViewModel/>
     </Page.DataContext>
 
-    <Grid x:Name="ContentArea">
+    <Page.Resources>
 
+    </Page.Resources>
+
+    <Grid x:Name="ContentArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -33,12 +42,11 @@
         </VisualStateManager.VisualStateGroups>
 
         <!--Detailansicht (rechts) Playlists Tab-->
-        <ScrollViewer
-            IsTabStop="True">
-            <StackPanel
+
+        <StackPanel Grid.Row="0"
                 x:Name="contentPanel">
-                <RelativePanel>
-                    <Grid
+            <RelativePanel>
+                <Grid
                         x:Name="itemHero"
                         Width="200"
                         Height="200"
@@ -48,16 +56,16 @@
                         VerticalAlignment="Top"
                         RelativePanel.AlignTopWithPanel="True"
                         RelativePanel.AlignLeftWithPanel="True">
-                        <FontIcon
+                    <FontIcon
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="70"
                             Glyph="&#xE774;"
                             AutomationProperties.Name="{x:Bind ViewModel.Item.PlaylistName}" />
-                        <!--Glyph="{x:Bind ViewModel.Item.Symbol}"     Ein zeile darüber einfügen --> 
-                    </Grid>
+                    <!--Glyph="{x:Bind ViewModel.Item.Symbol}"-->
+                </Grid>
 
-                    <TextBlock
+                <TextBlock
                         x:Name="title"
                         Margin="{StaticResource XXSmallTopMargin}"
                         RelativePanel.AlignTopWithPanel="True"
@@ -65,33 +73,113 @@
                         Style="{ThemeResource TitleTextBlockStyle}"
                         Text="{x:Bind ViewModel.Item.PlaylistName, Mode=OneWay}" />
 
-                    <StackPanel x:Name="propertiesGroup1" RelativePanel.Below="itemHero">
-                        <StackPanel x:Name="statusGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Song count" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.SongCount}" />
-                        </StackPanel>
-
-                        <StackPanel x:Name="orderDateGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="ID" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistID}" />
-                        </StackPanel>
+                <StackPanel x:Name="propertiesGroup1" RelativePanel.Below="itemHero">
+                    <StackPanel x:Name="statusGroup" Margin="{StaticResource SmallTopMargin}">
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Song count" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.SongCount}" />
                     </StackPanel>
 
-                    <StackPanel x:Name="propertiesGroup2" RelativePanel.Below="propertiesGroup1">
+                    <StackPanel x:Name="orderDateGroup" Margin="{StaticResource SmallTopMargin}">
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="ID" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistID}" />
+                    </StackPanel>
+                </StackPanel>
 
-                        <StackPanel>
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Total Duration" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistName}" />
-                        </StackPanel>
-                        
-                        <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
-                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Description" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
-                        </StackPanel>
+                <StackPanel x:Name="propertiesGroup2" RelativePanel.Below="propertiesGroup1">
+
+                    <StackPanel>
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Total Duration" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistName}" />
                     </StackPanel>
 
-                </RelativePanel>
-            </StackPanel>
-        </ScrollViewer>
+                    <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Description" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
+                    </StackPanel>
+                </StackPanel>
+
+            </RelativePanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button ToolTipService.ToolTip="Add Song">
+                <SymbolIcon Symbol="Add"/>
+                <Button.Flyout>
+                    <Flyout AreOpenCloseAnimationsEnabled="True">
+                        <StackPanel MaxWidth="400">
+                            <ListView ItemsSource="{x:Bind ViewModel.LibrarySongs}" Background="Transparent"
+                                      SelectedItem="{x:Bind ViewModel.SelectedLibrarySongs, Mode=TwoWay}"
+                                      IsMultiSelectCheckBoxEnabled="True"
+                                  SelectionMode="Single"
+                                  >
+                                <!--TODO: change selectionMode to Extended once found out how to bind multiple items to viewModel property-->
+                                <ListView.Header>
+                                    <StackPanel>
+                                        <TextBlock Text="Library:" FontSize="18" FontWeight="Bold"/>
+                                        <Rectangle HorizontalAlignment="Stretch"
+                                           Height="1.5"
+                                           Grid.ColumnSpan="4"
+                                           Grid.Row="1"
+                                           Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
+                                           Margin="0,5,0,0"/>
+
+                                    </StackPanel>
+                                </ListView.Header>
+                            </ListView>
+                            <Rectangle HorizontalAlignment="Stretch"
+                                           Height="1.5"
+                                           Grid.ColumnSpan="4"
+                                           Grid.Row="1"
+                                           Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
+                                           Margin="0,5,0,0"/>
+                            <Grid HorizontalAlignment="Stretch" Margin="10">
+
+                                <Button Content="Apply" Command="{x:Bind ViewModel.AddItemsCommand}"/>
+                                <!--<TextBlock Text="Shift/Ctrl for Multi-select"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Bottom"
+                                           FontStyle="Italic" Style="{StaticResource AdditionalInfoLabel}"/>-->
+                            </Grid>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+            <Button Command="{x:Bind ViewModel.DeleteItemCommand}"
+                    Margin="{StaticResource XSmallLeftMargin}"
+                    ToolTipService.ToolTip="Delete Selected Song">
+                <SymbolIcon Symbol="Delete"/>
+            </Button>
+        </StackPanel>
+        <ListView ItemsSource="{x:Bind ViewModel.Songlist, Mode=OneWay}"
+                  x:Name="songListView"
+                  CanReorderItems="True"
+                  SelectedItem="{x:Bind ViewModel.SelectedSong, Mode=TwoWay}"
+                  AllowDrop="True"
+                  Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Song">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{x:Bind SongTitle}"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind SongDuration}"
+                               Grid.Column="1" Margin="{StaticResource SmallRightMargin}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Header>
+                <TextBlock Text="Songs:" FontWeight="Bold" FontSize="18" Margin="0,10,0,0"/>
+            </ListView.Header>
+
+        </ListView>
     </Grid>
+
 </Page>

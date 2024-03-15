@@ -9,7 +9,7 @@ public class PlayCommand : SlashCommandBase
     
     public override string Name => "play";
     public override string Description => "Play a song.";
-    public override async Task ExecuteCommand(DiscordBot bot, SocketSlashCommand command)
+    public override async Task ExecuteCommand(Bot bot, SocketSlashCommand command)
     {
         // Code to handle the execution of the play command
     }
