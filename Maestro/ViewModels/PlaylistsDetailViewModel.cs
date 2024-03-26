@@ -23,6 +23,12 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
     [ObservableProperty]
     private Song _selectedLibrarySongs;
 
+    [ObservableProperty]
+    private bool _isLoadingRingVisible;
+
+    [ObservableProperty]
+    private bool _isCheckMarkVisible;
+
     public ObservableCollection<Song> LibrarySongs
     {
         get
@@ -32,11 +38,12 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
 
     }
 
-    
-
 
     public PlaylistsDetailViewModel()
     {
+
+        IsLoadingRingVisible = false;
+        IsCheckMarkVisible = false;
 
     }
 
@@ -76,6 +83,26 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
     public void DeleteItem()
     {
         Songlist.Remove(SelectedSong);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [RelayCommand]
+    public void Save()
+    {
+
+        IsLoadingRingVisible = true;
+
+        Task.Delay(1000);
+
+        IsLoadingRingVisible = false;
+        IsCheckMarkVisible = true;
+
+        Task.Delay(1000);
+
+        IsCheckMarkVisible = false;
+
     }
     
 }

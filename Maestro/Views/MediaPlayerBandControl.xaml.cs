@@ -16,5 +16,9 @@ public sealed partial class MediaPlayerBandControl : UserControl
     {
         ViewModel = App.GetService<MediaPlayerBandViewModel>();
         InitializeComponent();
+
+
+        
     }
+
 }

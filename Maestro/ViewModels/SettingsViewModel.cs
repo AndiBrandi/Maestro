@@ -65,4 +65,11 @@ public partial class SettingsViewModel : ObservableRecipient
 
         return $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
+
+    [RelayCommand]
+    private void SaveDiscordBotSettings()
+    {
+        throw new NotImplementedException("");
+    }
+
 }

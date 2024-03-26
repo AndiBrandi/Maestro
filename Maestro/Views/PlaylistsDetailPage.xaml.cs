@@ -18,6 +18,7 @@ public sealed partial class PlaylistsDetailPage : Page
     public PlaylistsDetailPage()
     {
         ViewModel = App.GetService<PlaylistsDetailViewModel>();
+        DataContext = App.GetService<PlaylistsDetailViewModel>();
         InitializeComponent();
     }
     

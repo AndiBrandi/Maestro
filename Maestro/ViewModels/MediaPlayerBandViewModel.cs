@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Forms;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.ViewModels;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.ViewModels;
 public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigationAware
@@ -16,8 +20,12 @@ public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigation
     //public ICommand PlayCommand;
     //public ICommand SkipCommand;
 
+
     [ObservableProperty]
     private Song _currentSong;
+
+    [ObservableProperty]
+    private string _selectedSource;
 
     public MediaPlayerBandViewModel()
     {
@@ -49,6 +57,17 @@ public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigation
     [RelayCommand]
     private void ReplayClicked()
     {
+
+        //ContentDialog dialog = new ContentDialog
+        //{
+        //    Title = "Save your work?",
+        //    PrimaryButtonText = "Save",
+        //    SecondaryButtonText = "Don't Save",
+        //    CloseButtonText = "Cancel",
+        //    DefaultButton = ContentDialogButton.Primary,
+            
+        //};
+        //dialog.ShowAsync();
 
     }
 

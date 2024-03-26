@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Xml;
+using System.Xml.Serialization;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.Services;
@@ -42,7 +44,7 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
 
     public void OnNavigatedFrom()
     {
-    
+        
     }
     
     [RelayCommand]
