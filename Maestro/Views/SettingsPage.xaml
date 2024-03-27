@@ -76,7 +76,7 @@
 
                             <StackPanel Orientation="Horizontal">
 
-                                <Button Margin="{StaticResource XSmallLeftTopRightBottomMargin}" Command="{x:Bind ViewModel.SaveDiscordBotCommand}">
+                                <Button Margin="{StaticResource XSmallLeftTopRightBottomMargin}" Command="{x:Bind ViewModel.SaveDiscordBotSettingsCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="Save"/>
                                         <TextBlock Text="Save" Margin="{StaticResource XSmallLeftMargin}"/>

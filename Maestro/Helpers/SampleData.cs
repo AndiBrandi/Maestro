@@ -77,7 +77,7 @@ internal class SampleData
                 SongTitle = "David Guetta & Bebe Rexha - I'm Good (Blue) [Official Music Video]",
                 SongDescription = "Im good david guetta original",
                 SongArtists = new List<string> { "David Guetta", "Bebe Rexha" },
-                SongDuration = "2:57",
+                SongDuration = 177,
                 SongURL = "https://www.youtube.com/watch?v=90RLzVUuXe4"
             },
             new()
@@ -85,7 +85,7 @@ internal class SampleData
                 SongTitle = "R3HAB x A Touch Of Class - All Around The World (La La La) (Alan Walker Remix) (Official Visualizer)",
                 SongDescription = "Around the world rehab alan walker",
                 SongArtists = new List<string> { "R3HAB", "A Touch of Class", "Alan Walker" },
-                SongDuration = "2:13",
+                SongDuration = 133,
                 SongURL = "https://www.youtube.com/watch?v=xWMUqEAPu-k"
 
             },
@@ -94,7 +94,7 @@ internal class SampleData
                 SongTitle = "Luis Fonsi - Despacito ft. Daddy Yankee",
                 SongDescription = "Despacito official video",
                 SongArtists = new List<string> { "Luis Fonsi", "Daddy Yankee" },
-                SongDuration = "4:42",
+                SongDuration = 282,
                 SongURL = "https://www.youtube.com/watch?v=kJQP7kiw5Fk"
             },
             new()
@@ -102,7 +102,7 @@ internal class SampleData
                 SongTitle = "Avicii - Levels",
                 SongDescription = "Levels Original",
                 SongArtists = new List<string> { "Avicii" },
-                SongDuration = "3:18",
+                SongDuration = 178,
                 SongURL = "https://www.youtube.com/watch?v=_ovdm2yX4MA"
             },
             new()
@@ -110,7 +110,7 @@ internal class SampleData
                 SongTitle = "Lost Sky - Vision pt. ll ~ Where We Started (MASHUP)",
                 SongDescription = "Vision, where we started mashup",
                 SongArtists = new List<string> { "Lost Sky" },
-                SongDuration = "3:42",
+                SongDuration = 222,
                 SongURL = "https://www.youtube.com/watch?v=0TnaERamI-Q"
             },
             new()
@@ -118,7 +118,7 @@ internal class SampleData
                 SongTitle = "Candyland (DR.L & JWoods Remix)",
                 SongDescription = "Candyland remix",
                 SongArtists = new List<string> { "Tobu", "DR.L", "JWoods" },
-                SongDuration = "3:28",
+                SongDuration = 202,
                 SongURL = "https://www.youtube.com/watch?v=sJxkj_gTITs"
             },
             new()
@@ -126,7 +126,7 @@ internal class SampleData
                 SongTitle = "Eiffel 65 - Blue (Black Lullaby Instrumental Remix 2020)",
                 SongDescription = "Blue black lullaby",
                 SongArtists = new List<string> { "Nightek1", "Eiffel 65" },
-                SongDuration = "3:25",
+                SongDuration = 205,
                 SongURL = "https://www.youtube.com/watch?v=wFL_j0cdBm4"
             },
             new()
@@ -134,7 +134,7 @@ internal class SampleData
                 SongTitle = "Popcorn Remix [HD]",
                 SongDescription = "Popcorn remix",
                 SongArtists = new List<string> { "Johnny Brave", "DJ Helli" },
-                SongDuration = "6:13",
+                SongDuration = 373,
                 SongURL = "https://www.youtube.com/watch?v=I3sKIV6KugA"
             },
             new()
@@ -142,7 +142,7 @@ internal class SampleData
                 SongTitle = "This Is What It Feels Like",
                 SongDescription = "this is what it feels like",
                 SongArtists = new List<string> { "Armin van Buuren", "Trevor Guthrie" },
-                SongDuration = "3:24",
+                SongDuration = 204,
                 SongURL = "https://www.youtube.com/watch?v=1SN3-qR3Bq0"
             },
             new()
@@ -150,7 +150,7 @@ internal class SampleData
                 SongTitle = "Owl City - Fireflies (Lyrics)",
                 SongDescription = "fireflies",
                 SongArtists = new List<string> { "Owl City" },
-                SongDuration = "3:44",
+                SongDuration = 224,
                 SongURL = "https://www.youtube.com/watch?v=QBgl4rVz3Ks"
             }
         };
@@ -162,7 +162,7 @@ internal class SampleData
             SongTitle = "NEFFEX - Numb [Copyright Free] No.77",
             SongDescription = "numb neffex",
             SongArtists = new List<string> { "Neffex" },
-            SongDuration = "2:24",
+            SongDuration = 144,
             SongURL = "https://www.youtube.com/watch?v=lJkEF0_QigU"
         },
         new()
@@ -170,7 +170,7 @@ internal class SampleData
             SongTitle = "Alan Walker - Alone",
             SongDescription = "alone",
             SongArtists = new List<string> { "Alan Walker" },
-            SongDuration = "2:43",
+            SongDuration = 163,
             SongURL = "https://www.youtube.com/watch?v=1-xGerv5FOk"
         },
         new()
@@ -178,7 +178,7 @@ internal class SampleData
             SongTitle = "Alan Walker, Dash Berlin & Vikkstar - Better Off (Alone, Pt. III) - Official Music Video ",
             SongDescription = "alone pt3",
             SongArtists = new List<string> { "Alan Walker", "Dash Berlin", "Vikkstar" },
-            SongDuration = "2:31",
+            SongDuration = 151,
             SongURL = "https://www.youtube.com/watch?v=ouEl3qTLc0M"
         },
         new()
@@ -186,7 +186,7 @@ internal class SampleData
             SongTitle = "TheFatRat - Unity",
             SongDescription = "unity",
             SongArtists = new List<string> { "TheFatRat" },
-            SongDuration = "4:09",
+            SongDuration = 249,
             SongURL = "https://www.youtube.com/watch?v=n8X9_MgEdCg"
         },
     };

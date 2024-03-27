@@ -5,13 +5,13 @@ public class Song
 {
     #region FIELDS
 
-    private Guid _songID;
+    private Guid _songId;
     private string? _songTitle = "";
     private string? _songDescription = "";
     private string? _songAlbum = null;
     private List<string>? _songArtists = new();
-    private string? _songDuration = "";
-    private string? _songYoutubeURL = "";
+    private TimeSpan? _songDuration = TimeSpan.Zero;
+    private string? _songYoutubeUrl = "";
     private string? _thumbnailFilePath;
 
     #endregion //FIELDS
@@ -19,30 +19,45 @@ public class Song
 
     #region PROPERTIES
 
+    /// <summary>
+    /// The ID of the song
+    /// </summary>
     public Guid SongID
     {
-        get => _songID;
-        set => _songID = value;
+        get => _songId;
+        set => _songId = value;
     }
 
+    /// <summary>
+    /// The song Title
+    /// </summary>
     public string? SongTitle
     {
         get => _songTitle;
         set => _songTitle = value;
     }
 
+    /// <summary>
+    /// Optional description of the Entry
+    /// </summary>
     public string? SongDescription
     {
         get => _songDescription;
         set => _songDescription = value;
     }
 
+    /// <summary>
+    /// The album of the song
+    /// </summary>
     public string? SongAlbum
     {
         get => _songAlbum ?? _songTitle;
         set => _songAlbum = value;
     }
 
+    /// <summary>
+    /// All Artists of the Song in a <see cref="List{String}"/>
+    /// </summary>
     public List<string>? SongArtists
     {
         get => _songArtists;
@@ -64,17 +79,32 @@ public class Song
         }
     }
 
-    public string? SongDuration
-    {
-        get => _songDuration;
-        set => _songDuration = value;
+    /// <summary>
+    /// The duration of the song in Seconds
+    /// </summary>
+    public int? SongDuration
+    { 
+        get => _songDuration?.Seconds;
+        set => _songDuration = TimeSpan.FromSeconds(Convert.ToInt32(value));
     }
 
+    /// <summary>
+    /// The Duration of a Song in the mm:ss format
+    /// </summary>
+    public string? SongDurationFormatted => $"{_songDuration?.Minutes}:{(_songDuration.Value.Seconds % 60)}";
+
+    /// <summary>
+    /// The YouTube URL of the Song
+    /// </summary>
     public string? SongURL
     {
-        get => _songYoutubeURL;
-        set => _songYoutubeURL = value;
+        get => _songYoutubeUrl;
+        set => _songYoutubeUrl = value;
     }
+    
+    /// <summary>
+    /// The string Path to a locally stored image
+    /// </summary>
     public string? ThumbnailFilePath
     {
         get => _thumbnailFilePath;
@@ -86,21 +116,21 @@ public class Song
 
     #region CONSTRUCTORS
 
-    public Song(string songTitle, string songDescription, List<string> songArtists, string songDuration, string youtubeUrl, string thumbnail)
+    public Song(string songTitle, string songDescription, List<string> songArtists, int songDurationSeconds, string youtubeUrl, string thumbnail)
     {
-        _songID = Guid.NewGuid();
+        _songId = Guid.NewGuid();
         _songTitle = songTitle;
         _songDescription = songDescription;
         _songArtists = songArtists;
-        _songDuration = songDuration;
-        _songYoutubeURL = youtubeUrl;
+        _songDuration = TimeSpan.FromSeconds(songDurationSeconds);
+        _songYoutubeUrl = youtubeUrl;
         _thumbnailFilePath = thumbnail;
 
     }
 
     public Song()
     {
-        _songID = Guid.NewGuid();
+        _songId = Guid.NewGuid();
     }
 
 

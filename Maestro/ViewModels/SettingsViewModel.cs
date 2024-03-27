@@ -9,6 +9,7 @@ using Maestro.Helpers;
 using Microsoft.UI.Xaml;
 
 using Windows.ApplicationModel;
+using Windows.Storage;
 
 namespace Maestro.ViewModels;
 
@@ -69,6 +70,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private void SaveDiscordBotSettings()
     {
+        //Console.WriteLine("APPDATA PFAD:" + ApplicationData.Current.LocalFolder.Path);
         throw new NotImplementedException("");
     }
 

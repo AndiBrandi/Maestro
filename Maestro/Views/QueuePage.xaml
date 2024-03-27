@@ -55,7 +55,7 @@
                                Grid.Column="2"/>
 
                 <!--Column 3 Duration-->
-                <TextBlock Text="{x:Bind SongDuration}"
+                <TextBlock Text="{x:Bind SongDurationFormatted}"
                                VerticalAlignment="Center"
                                Grid.Row="0"
                                Grid.RowSpan="2"

@@ -182,7 +182,7 @@
                         <TextBlock Text="{x:Bind SongTitle}"
                                Grid.Column="0"
                                VerticalAlignment="Center"/>
-                        <TextBlock Text="{x:Bind SongDuration}"
+                        <TextBlock Text="{x:Bind SongDurationFormatted}"
                                Grid.Column="1" Margin="{StaticResource SmallRightMargin}"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"/>
