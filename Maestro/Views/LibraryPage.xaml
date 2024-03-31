@@ -30,7 +30,7 @@
                     <TextBlock Text="{x:Bind SongTitle}" Style="{StaticResource ListTitleStyle}" />
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{x:Bind SongArtists.Count}" Style="{StaticResource ListSubTitleStyle}" />
-                        <TextBlock Text=" Artists" Style="{StaticResource ListSubTitleStyle}"/>
+                        <TextBlock Text=" Artists" Style="{StaticResource ListSubTitleStyle}" />
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -39,7 +39,7 @@
 
         <DataTemplate x:Key="DetailsTemplate">
             <Grid>
-                <views:LibraryDetailControl ListDetailsMenuItem="{Binding}"/>
+                <views:LibraryDetailControl ListDetailsMenuItem="{Binding}" />
             </Grid>
         </DataTemplate>
 
@@ -84,7 +84,8 @@
                         <AdaptiveTrigger MinWindowWidth="641" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ListDetailsViewControl.ListHeaderTemplate" Value="{StaticResource ListHeaderTemplate}" />
+                        <Setter Target="ListDetailsViewControl.ListHeaderTemplate"
+                                Value="{StaticResource ListHeaderTemplate}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -104,10 +105,11 @@
             ViewStateChanged="OnViewStateChanged">
             <controls:ListDetailsView.ContextFlyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem Text="Add new Song" Icon="Add"/>
-                    <MenuFlyoutItem Text="Library Statistics" Icon="Help"/>
-                    <MenuFlyoutSeparator/>
-                    <MenuFlyoutItem Text="Delete Selected" Icon="Delete"/>
+                    <MenuFlyoutItem Text="Add new Song" Icon="Add" Command="{x:Bind ViewModel.AddNewSongCommand}" />
+                    <MenuFlyoutItem Text="Library Statistics" Icon="Help"
+                                    Command="{x:Bind ViewModel.ShowLibraryStatisticsCommand}" />
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Delete Selected" Icon="Delete" Command="{x:Bind ViewModel.DeleteSongCommand}" />
                 </MenuFlyout>
             </controls:ListDetailsView.ContextFlyout>
         </controls:ListDetailsView>

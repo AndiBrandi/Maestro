@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Discord.Rest;
 using Maestro.Contracts.ViewModels;
 using Maestro.Helpers;
 using Windows.ApplicationModel.DataTransfer;
-using Maestro.Core.Models;
 
 // using Maestro.Core.Models;
 
@@ -14,8 +15,7 @@ namespace Maestro.ViewModels;
 public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 {
     //The selected Item in the left list
-    [ObservableProperty]
-    private Song? _selected;
+    [ObservableProperty] private Song? _selected;
 
     public ObservableCollection<Song?> AllSongs
     {
@@ -24,7 +24,6 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 
     public LibraryViewModel()
     {
-        CommandCopyToClipboard = new RelayCommand(ExecuteCopyToClipboard);
     }
 
     public void OnNavigatedTo(object parameter)
@@ -39,10 +38,9 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         //    SampleItems.Add(item);
         //}
 
-        
 
         //Test data
-        foreach (var song in SampleData.SampleSongs)
+        foreach (var song in SqliteHelper.ExecuteGetAllSongsQuery())
         {
             AllSongs.Add(song);
         }
@@ -54,7 +52,6 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
 
     public void EnsureItemSelected()
     {
-        // Selected ??= AllSongs.First();
         Selected ??= AllSongs.First();
     }
 
@@ -63,10 +60,26 @@ public partial class LibraryViewModel : ObservableRecipient, INavigationAware
         get;
     }
 
-    public void ExecuteCopyToClipboard()
+    [RelayCommand]
+    public void CopyToClipboard()
     {
         DataPackage dataPackage = new();
         dataPackage.SetText(Selected?.SongURL);
         Clipboard.SetContent(dataPackage);
+    }
+
+    [RelayCommand]
+    public void AddNewSong()
+    {
+    }
+
+    [RelayCommand]
+    public void DeleteSong()
+    {
+    }
+
+    [RelayCommand]
+    public void ShowLibraryStatistics()
+    {
     }
 }

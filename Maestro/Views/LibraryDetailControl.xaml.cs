@@ -12,7 +12,9 @@ public sealed partial class LibraryDetailControl : Page
         set => SetValue(ListDetailsMenuItemProperty, value);
     }
 
-    public static readonly DependencyProperty ListDetailsMenuItemProperty = DependencyProperty.Register("ListDetailsMenuItem", typeof(Song), typeof(LibraryDetailControl), new PropertyMetadata(null, OnListDetailsMenuItemPropertyChanged));
+    public static readonly DependencyProperty ListDetailsMenuItemProperty =
+        DependencyProperty.Register("ListDetailsMenuItem", typeof(Song), typeof(LibraryDetailControl),
+            new PropertyMetadata(null, OnListDetailsMenuItemPropertyChanged));
 
     public LibraryDetailControl()
     {

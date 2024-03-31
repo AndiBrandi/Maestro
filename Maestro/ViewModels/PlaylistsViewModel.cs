@@ -36,7 +36,7 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
         //TestNotification
 
         //Test data
-        foreach (var playlist in SampleData.SamplePlaylists)
+        foreach (var playlist in SqliteHelper.ExecuteGetAllPlaylistsQuery())
         {
             Playlists.Add(playlist);
         }
@@ -44,9 +44,8 @@ public partial class PlaylistsViewModel : ObservableRecipient, INavigationAware
 
     public void OnNavigatedFrom()
     {
-        
     }
-    
+
     [RelayCommand]
     private void ItemClicked(Playlist? clickedItem)
     {

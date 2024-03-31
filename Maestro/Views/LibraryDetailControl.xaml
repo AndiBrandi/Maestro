@@ -9,17 +9,17 @@
     <StackPanel>
         <!--Detailansicht (rechts)-->
         <ScrollViewer
-        x:Name="ForegroundElement"
-        HorizontalAlignment="Stretch"
-        VerticalScrollMode="Enabled"
-        IsTabStop="True">
+            x:Name="ForegroundElement"
+            HorizontalAlignment="Stretch"
+            VerticalScrollMode="Enabled"
+            IsTabStop="True">
             <StackPanel HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <FontIcon
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Glyph="&#xEC4F;"
-                        FontSize="48"/>
+                        FontSize="48" />
                     <TextBlock
                         Margin="{StaticResource SmallLeftMargin}"
                         TextWrapping="WrapWholeWords"
@@ -30,26 +30,29 @@
                 <StackPanel Padding="0,15,0,0">
                     <TextBlock Text="Artists" Style="{StaticResource DetailSubTitleStyle}" />
 
-                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongArtistsAsString, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongArtistsAsString, Mode=OneWay}"
+                               Style="{StaticResource DetailBodyBaseMediumStyle}" />
 
                     <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Song Duration"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongDurationFormatted, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                        Margin="{StaticResource SmallTopMargin}"
+                        Text="Song Duration"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongDurationFormatted, Mode=OneWay}"
+                               Style="{StaticResource DetailBodyBaseMediumStyle}" />
                     <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Description:"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongDescription, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                        Margin="{StaticResource SmallTopMargin}"
+                        Text="Description:"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongDescription, Mode=OneWay}"
+                               Style="{StaticResource DetailBodyBaseMediumStyle}" />
                     <StackPanel Orientation="Horizontal">
                         <HyperlinkButton
                             Margin="{StaticResource SmallTopMargin}"
                             NavigateUri="{x:Bind ListDetailsMenuItem.SongURL, Mode=OneWay}" Padding="1">
                             <HyperlinkButton.Content>
                                 <StackPanel Orientation="Horizontal">
-                                    <FontIcon Glyph="&#xE8A7;"/>
-                                    <TextBlock Text="YouTube" Margin="{StaticResource SmallLeftMargin}"/>
+                                    <FontIcon Glyph="&#xE8A7;" />
+                                    <TextBlock Text="YouTube" Margin="{StaticResource SmallLeftMargin}" />
                                 </StackPanel>
                             </HyperlinkButton.Content>
                         </HyperlinkButton>
@@ -59,10 +62,11 @@
                     </StackPanel>
 
                     <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="ID:"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongID, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                        Margin="{StaticResource SmallTopMargin}"
+                        Text="ID:"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind ListDetailsMenuItem.SongID, Mode=OneWay}"
+                               Style="{StaticResource DetailBodyBaseMediumStyle}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

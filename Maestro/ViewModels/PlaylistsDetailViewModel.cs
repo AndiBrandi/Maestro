@@ -10,24 +10,17 @@ namespace Maestro.ViewModels;
 
 public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigationAware
 {
+    [ObservableProperty] private Playlist? item;
 
-    [ObservableProperty]
-    private Playlist? item;
+    [ObservableProperty] private ObservableCollection<Song> _songlist;
 
-    [ObservableProperty]
-    private ObservableCollection<Song> _songlist;
+    [ObservableProperty] private Song _selectedSong;
 
-    [ObservableProperty]
-    private Song _selectedSong;
+    [ObservableProperty] private Song _selectedLibrarySongs;
 
-    [ObservableProperty]
-    private Song _selectedLibrarySongs;
+    [ObservableProperty] private bool _isLoadingRingVisible;
 
-    [ObservableProperty]
-    private bool _isLoadingRingVisible;
-
-    [ObservableProperty]
-    private bool _isCheckMarkVisible;
+    [ObservableProperty] private bool _isCheckMarkVisible;
 
     public ObservableCollection<Song> LibrarySongs
     {
@@ -35,16 +28,13 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
         {
             return new(SampleData.SampleSongs);
         }
-
     }
 
 
     public PlaylistsDetailViewModel()
     {
-
         IsLoadingRingVisible = false;
         IsCheckMarkVisible = false;
-
     }
 
     public void OnNavigatedTo(object parameter)
@@ -55,7 +45,6 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
             //Item = data.First(i => i.OrderID == orderID);
             Item = playlist;
             Songlist = new(Item.SongList);
-
         }
     }
 
@@ -91,18 +80,15 @@ public partial class PlaylistsDetailViewModel : ObservableRecipient, INavigation
     [RelayCommand]
     public void Save()
     {
+        //IsLoadingRingVisible = true;
 
-        IsLoadingRingVisible = true;
+        //Task.Delay(1000);
 
-        Task.Delay(1000);
+        //IsLoadingRingVisible = false;
+        //IsCheckMarkVisible = true;
 
-        IsLoadingRingVisible = false;
-        IsCheckMarkVisible = true;
+        //Task.Delay(1000);
 
-        Task.Delay(1000);
-
-        IsCheckMarkVisible = false;
-
+        //IsCheckMarkVisible = false;
     }
-    
 }

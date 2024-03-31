@@ -1,5 +1,4 @@
-﻿
-namespace Maestro.Core.Models;
+﻿namespace Maestro.Core.Models;
 
 public class Song
 {
@@ -75,6 +74,7 @@ public class Song
             {
                 return string.Join(", ", _songArtists);
             }
+
             return "";
         }
     }
@@ -83,7 +83,7 @@ public class Song
     /// The duration of the song in Seconds
     /// </summary>
     public int? SongDuration
-    { 
+    {
         get => _songDuration?.Seconds;
         set => _songDuration = TimeSpan.FromSeconds(Convert.ToInt32(value));
     }
@@ -91,7 +91,8 @@ public class Song
     /// <summary>
     /// The Duration of a Song in the mm:ss format
     /// </summary>
-    public string? SongDurationFormatted => $"{_songDuration?.Minutes}:{(_songDuration.Value.Seconds % 60)}";
+    public string? SongDurationFormatted =>
+        $"{_songDuration?.Minutes}:{(_songDuration.Value.Seconds % 60).ToString("D2")}";
 
     /// <summary>
     /// The YouTube URL of the Song
@@ -101,7 +102,7 @@ public class Song
         get => _songYoutubeUrl;
         set => _songYoutubeUrl = value;
     }
-    
+
     /// <summary>
     /// The string Path to a locally stored image
     /// </summary>
@@ -116,7 +117,8 @@ public class Song
 
     #region CONSTRUCTORS
 
-    public Song(string songTitle, string songDescription, List<string> songArtists, int songDurationSeconds, string youtubeUrl, string thumbnail)
+    public Song(string songTitle, string songDescription, List<string> songArtists, int songDurationSeconds,
+        string youtubeUrl, string thumbnail)
     {
         _songId = Guid.NewGuid();
         _songTitle = songTitle;
@@ -125,7 +127,6 @@ public class Song
         _songDuration = TimeSpan.FromSeconds(songDurationSeconds);
         _songYoutubeUrl = youtubeUrl;
         _thumbnailFilePath = thumbnail;
-
     }
 
     public Song()
@@ -133,12 +134,10 @@ public class Song
         _songId = Guid.NewGuid();
     }
 
-
     #endregion //CONSTRUCTORS
 
     public override string ToString()
     {
         return SongTitle;
     }
-
 }
