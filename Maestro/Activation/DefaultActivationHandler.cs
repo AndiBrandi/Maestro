@@ -1,6 +1,5 @@
 ﻿using Maestro.Contracts.Services;
 using Maestro.ViewModels;
-
 using Microsoft.UI.Xaml;
 
 namespace Maestro.Activation;

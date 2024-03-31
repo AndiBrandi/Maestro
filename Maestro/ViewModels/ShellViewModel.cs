@@ -1,20 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-
 using Maestro.Contracts.Services;
 using Maestro.Views;
-
 using Microsoft.UI.Xaml.Navigation;
 
 namespace Maestro.ViewModels;
 
 public partial class ShellViewModel : ObservableRecipient
 {
-    [ObservableProperty]
-    private bool isBackEnabled;
+    [ObservableProperty] private bool isBackEnabled;
 
 
-    [ObservableProperty]
-    private object? selected;
+    [ObservableProperty] private object? selected;
 
     public INavigationService NavigationService
     {

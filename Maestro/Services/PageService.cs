@@ -1,9 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-
 using Maestro.Contracts.Services;
 using Maestro.ViewModels;
 using Maestro.Views;
-
 using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.Services;
@@ -51,7 +49,8 @@ public class PageService : IPageService
             var type = typeof(V);
             if (_pages.ContainsValue(type))
             {
-                throw new ArgumentException($"This type is already configured with key {_pages.First(p => p.Value == type).Key}");
+                throw new ArgumentException(
+                    $"This type is already configured with key {_pages.First(p => p.Value == type).Key}");
             }
 
             _pages.Add(key, type);

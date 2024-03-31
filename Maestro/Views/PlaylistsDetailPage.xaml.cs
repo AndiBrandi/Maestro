@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.WinUI.UI.Animations;
-
 using Maestro.Contracts.Services;
 using Maestro.ViewModels;
 using Microsoft.UI.Xaml.Controls;
@@ -21,7 +20,7 @@ public sealed partial class PlaylistsDetailPage : Page
         DataContext = App.GetService<PlaylistsDetailViewModel>();
         InitializeComponent();
     }
-    
+
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
@@ -41,5 +40,4 @@ public sealed partial class PlaylistsDetailPage : Page
             }
         }
     }
-
 }

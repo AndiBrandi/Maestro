@@ -13,23 +13,20 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.ViewModels;
+
 public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigationAware
 {
-
     //public ICommand ReplayCommand;
     //public ICommand PlayCommand;
     //public ICommand SkipCommand;
 
 
-    [ObservableProperty]
-    private Song _currentSong;
+    [ObservableProperty] private Song _currentSong;
 
-    [ObservableProperty]
-    private string _selectedSource;
+    [ObservableProperty] private string _selectedSource;
 
     public MediaPlayerBandViewModel()
     {
-
         replayClickedCommand = new RelayCommand(ReplayClicked);
         playClickedCommand = new RelayCommand(PlayClicked);
         skipClickedCommand = new RelayCommand(SkipClicked);
@@ -42,22 +39,19 @@ public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigation
             SongArtists = { "David Guetta", "Bebe Rexha" },
             SongAlbum = null,
         };
-
     }
 
     public void OnNavigatedFrom()
     {
-
     }
+
     public void OnNavigatedTo(object parameter)
     {
-
     }
 
     [RelayCommand]
     private void ReplayClicked()
     {
-
         //ContentDialog dialog = new ContentDialog
         //{
         //    Title = "Save your work?",
@@ -65,23 +59,18 @@ public partial class MediaPlayerBandViewModel : ObservableRecipient, INavigation
         //    SecondaryButtonText = "Don't Save",
         //    CloseButtonText = "Cancel",
         //    DefaultButton = ContentDialogButton.Primary,
-            
+
         //};
         //dialog.ShowAsync();
-
     }
 
     [RelayCommand]
     private void PlayClicked()
     {
-
     }
 
     [RelayCommand]
     private void SkipClicked()
     {
-
     }
-
-
 }

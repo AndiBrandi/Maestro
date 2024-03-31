@@ -8,27 +8,27 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <viewModels:MusicbotViewModel/>
+        <viewModels:MusicbotViewModel />
     </Page.DataContext>
 
     <Grid x:Name="ContentArea" VerticalAlignment="Top">
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="The music bot page"/>
+            <TextBlock Text="The music bot page" />
             <Button Content="Start Music Bot"
                     Margin="{StaticResource SmallRightMargin}"
                     IsEnabled="{x:Bind ViewModel.IsStartEnabled, Mode=TwoWay}"
-                    Command="{x:Bind ViewModel.StartMusicBotCommand}"/>
+                    Command="{x:Bind ViewModel.StartMusicBotCommand}" />
 
             <Button Content="Stop Music Bot"
                     IsEnabled="{x:Bind ViewModel.IsStopEnabled, Mode=TwoWay}"
-                    Command="{x:Bind ViewModel.StopMusicBotCommand}"/>
+                    Command="{x:Bind ViewModel.StopMusicBotCommand}" />
         </StackPanel>
-        <TextBox PlaceholderText="Bot token" Text="{x:Bind ViewModel.BotToken, Mode=TwoWay}" Grid.Row="1"/>
+        <TextBox PlaceholderText="Bot token" Text="{x:Bind ViewModel.BotToken, Mode=TwoWay}" Grid.Row="1" />
     </Grid>
 </Page>

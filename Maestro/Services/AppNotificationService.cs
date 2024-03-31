@@ -1,8 +1,6 @@
 ﻿using System.Collections.Specialized;
 using System.Web;
-
 using Maestro.Contracts.Services;
-
 using Microsoft.Windows.AppNotifications;
 
 namespace Maestro.Notifications;
@@ -43,7 +41,8 @@ public class AppNotificationService : IAppNotificationService
 
         App.MainWindow.DispatcherQueue.TryEnqueue(() =>
         {
-            App.MainWindow.ShowMessageDialogAsync("TODO: Handle notification invocations when your app is already running.", "Notification Invoked");
+            App.MainWindow.ShowMessageDialogAsync(
+                "TODO: Handle notification invocations when your app is already running.", "Notification Invoked");
 
             App.MainWindow.BringToFront();
         });

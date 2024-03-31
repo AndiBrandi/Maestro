@@ -53,36 +53,38 @@
 
                     <Expander HorizontalAlignment="Stretch" Margin="0,10,0,0" HorizontalContentAlignment="Left">
                         <Expander.Header>
-                            <TextBlock Text="Built-In Discord Bot"/>
+                            <TextBlock Text="Built-In Discord Bot" />
                         </Expander.Header>
                         <StackPanel Orientation="Vertical">
 
                             <TextBox Header="Your Bot Token"
                                      PlaceholderText="Received in the Discord Developer Portal"
-                                     Width="700" Margin="{StaticResource XSmallLeftTopRightBottomMargin}"/>
+                                     Width="700" Margin="{StaticResource XSmallLeftTopRightBottomMargin}" />
                             <TextBox Header="Your User ID"
                                      PlaceholderText="ID of Your Discord Account"
-                                     Margin="{StaticResource XSmallLeftTopRightBottomMargin}"/>
+                                     Margin="{StaticResource XSmallLeftTopRightBottomMargin}" />
                             <TextBox Header="Your Server ID"
                                      PlaceholderText="ID of the Server You want the Bot to play in"
-                                     Margin="{StaticResource XSmallLeftTopRightBottomMargin}"/>
+                                     Margin="{StaticResource XSmallLeftTopRightBottomMargin}" />
 
-                            <HyperlinkButton NavigateUri="https://github.com/AndiBrandi/Maestro/blob/master/README.md" Margin="{StaticResource XSmallLeftTopRightBottomMargin}">
+                            <HyperlinkButton NavigateUri="https://github.com/AndiBrandi/Maestro/blob/master/README.md"
+                                             Margin="{StaticResource XSmallLeftTopRightBottomMargin}">
                                 <StackPanel Orientation="Horizontal">
-                                    <FontIcon Glyph="&#xE8A7;"/>
-                                    <TextBlock Text="How to get these Values?"/>
+                                    <FontIcon Glyph="&#xE8A7;" />
+                                    <TextBlock Text="How to get these Values?" />
                                 </StackPanel>
                             </HyperlinkButton>
 
                             <StackPanel Orientation="Horizontal">
 
-                                <Button Margin="{StaticResource XSmallLeftTopRightBottomMargin}" Command="{x:Bind ViewModel.SaveDiscordBotSettingsCommand}">
+                                <Button Margin="{StaticResource XSmallLeftTopRightBottomMargin}"
+                                        Command="{x:Bind ViewModel.SaveDiscordBotSettingsCommand}">
                                     <StackPanel Orientation="Horizontal">
-                                        <SymbolIcon Symbol="Save"/>
-                                        <TextBlock Text="Save" Margin="{StaticResource XSmallLeftMargin}"/>
+                                        <SymbolIcon Symbol="Save" />
+                                        <TextBlock Text="Save" Margin="{StaticResource XSmallLeftMargin}" />
                                     </StackPanel>
                                 </Button>
-                                <SymbolIcon Symbol="Accept" Visibility="Visible"/>
+                                <SymbolIcon Symbol="Accept" Visibility="Visible" />
                             </StackPanel>
                         </StackPanel>
 
@@ -90,9 +92,9 @@
 
                     <TextBlock x:Uid="Settings_Application_Behavior"
                                Style="{ThemeResource SubtitleTextBlockStyle}"
-                               Margin="{StaticResource SmallTopBottomMargin}"/>
+                               Margin="{StaticResource SmallTopBottomMargin}" />
                     <CheckBox x:Uid="Settings_WindowOnTop_Checkbox"
-                              Margin="{StaticResource XXSmallTopMargin}"/>
+                              Margin="{StaticResource XXSmallTopMargin}" />
                 </StackPanel>
             </StackPanel>
 
@@ -100,14 +102,15 @@
             <!--About this Application-->
 
             <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                <TextBlock Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" />
+                <TextBlock Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}"
+                           Style="{ThemeResource BodyTextBlockStyle}" />
 
                 <TextBlock
                     x:Uid="Settings_AboutDescription"
                     Margin="{StaticResource XSmallTopMargin}"
-                    Style="{ThemeResource BodyTextBlockStyle}" 
-                    />
-                <HyperlinkButton x:Uid="SettingsPage_PrivacyTermsLink" Margin="{StaticResource SettingsPageHyperlinkButtonMargin}" />
+                    Style="{ThemeResource BodyTextBlockStyle}" />
+                <HyperlinkButton x:Uid="SettingsPage_PrivacyTermsLink"
+                                 Margin="{StaticResource SettingsPageHyperlinkButtonMargin}" />
             </StackPanel>
         </StackPanel>
     </Grid>

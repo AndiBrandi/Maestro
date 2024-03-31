@@ -7,6 +7,7 @@ using Discord.WebSocket;
 using Maestro.DiscordBot.BaseClasses;
 
 namespace Maestro.DiscordBot.ApplicationCommands;
+
 public class SkipCommand : SlashCommandBase
 {
     public override string Name => "skip";
@@ -15,7 +16,6 @@ public class SkipCommand : SlashCommandBase
 
     public override Task ExecuteCommand(Bot bot, SocketSlashCommand command)
     {
-
         throw new NotImplementedException();
     }
 }

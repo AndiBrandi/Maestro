@@ -7,6 +7,7 @@ using Discord.WebSocket;
 using Maestro.DiscordBot.BaseClasses;
 
 namespace Maestro.DiscordBot.ApplicationCommands;
+
 public class ReplayCommand : SlashCommandBase
 {
     public override string Name => "replay";

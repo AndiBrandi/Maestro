@@ -72,7 +72,7 @@ public class Bot
         IsRunning = false;
         IsRunningNegated = true;
     }
-    
+
     #endregion
 
     #region Private Methods

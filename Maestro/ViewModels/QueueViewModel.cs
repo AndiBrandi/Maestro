@@ -11,18 +11,14 @@ namespace Maestro.ViewModels;
 
 public partial class QueueViewModel : ObservableRecipient, INavigationAware
 {
-
     public event EventHandler SelectedSourceChanged;
 
-    [ObservableProperty]
-    private List<string> _availableSources = new() { "Integrated Bot", "Extern Bot" };
+    [ObservableProperty] private List<string> _availableSources = new() { "Integrated Bot", "Extern Bot" };
 
-    [ObservableProperty]
-    private static string _selectedSource;
+    [ObservableProperty] private static string _selectedSource;
 
 
-    [ObservableProperty]
-    private ObservableCollection<Song> _songQueue;
+    [ObservableProperty] private ObservableCollection<Song> _songQueue;
 
     public QueueViewModel()
     {
@@ -32,11 +28,10 @@ public partial class QueueViewModel : ObservableRecipient, INavigationAware
 
     public void OnNavigatedFrom()
     {
-        
     }
+
     public void OnNavigatedTo(object parameter)
     {
-        
     }
 
     [RelayCommand]
@@ -57,9 +52,5 @@ public partial class QueueViewModel : ObservableRecipient, INavigationAware
             SongQueue.Clear();
             SongQueue = new(SampleData.SampleSongs2);
         }
-
-
-
     }
-
 }

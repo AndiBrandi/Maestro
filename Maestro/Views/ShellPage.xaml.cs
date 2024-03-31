@@ -1,11 +1,9 @@
 ﻿using Maestro.Contracts.Services;
 using Maestro.Helpers;
 using Maestro.ViewModels;
-
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
-
 using Windows.System;
 using Maestro.Notifications;
 
@@ -49,7 +47,8 @@ public sealed partial class ShellPage : Page
         App.AppTitlebar = AppTitleBarText as UIElement;
     }
 
-    private void NavigationViewControl_DisplayModeChanged(NavigationView sender, NavigationViewDisplayModeChangedEventArgs args)
+    private void NavigationViewControl_DisplayModeChanged(NavigationView sender,
+        NavigationViewDisplayModeChangedEventArgs args)
     {
         AppTitleBar.Margin = new Thickness()
         {
@@ -74,7 +73,8 @@ public sealed partial class ShellPage : Page
         return keyboardAccelerator;
     }
 
-    private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+    private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender,
+        KeyboardAcceleratorInvokedEventArgs args)
     {
         var navigationService = App.GetService<INavigationService>();
 

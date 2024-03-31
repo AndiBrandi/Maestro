@@ -10,17 +10,17 @@ namespace Maestro.DiscordBot;
 
 internal sealed class DiscordClientHost : IHostedService
 {
-    
     private readonly DiscordSocketClient _discordClient;
     private readonly InteractionService _interactionService;
     private readonly IServiceProvider _serviceProvider;
-    
-    public DiscordClientHost(DiscordSocketClient discordClient, InteractionService interactionService, IServiceProvider serviceProvider)
+
+    public DiscordClientHost(DiscordSocketClient discordClient, InteractionService interactionService,
+        IServiceProvider serviceProvider)
     {
         ArgumentNullException.ThrowIfNull(discordClient);
         ArgumentNullException.ThrowIfNull(interactionService);
         ArgumentNullException.ThrowIfNull(serviceProvider);
-        
+
         _discordClient = discordClient;
         _interactionService = interactionService;
         _serviceProvider = serviceProvider;
@@ -47,26 +47,24 @@ internal sealed class DiscordClientHost : IHostedService
         _discordClient.Ready -= Client_Ready;
 
         await _discordClient.LogoutAsync();
-        
+
         await _discordClient
             .StopAsync()
             .ConfigureAwait(false);
     }
-    
+
     private Task InteractionCreated(SocketInteraction interaction)
     {
         var interactionContext = new SocketInteractionContext(_discordClient, interaction);
         return _interactionService!.ExecuteCommandAsync(interactionContext, _serviceProvider);
     }
-    
+
     /// <summary>
     /// The event handler for the <see cref="DiscordSocketClient.Ready"/> event.
     /// </summary>
     /// <param name="arg">The event argument containing information about the event.</param>
     private async Task Client_Ready()
     {
-
-        
         await _interactionService
             .AddModulesAsync(Assembly.GetExecutingAssembly(), _serviceProvider)
             .ConfigureAwait(false);
@@ -75,7 +73,5 @@ internal sealed class DiscordClientHost : IHostedService
         await _interactionService
             .RegisterCommandsToGuildAsync(0)
             .ConfigureAwait(false);
-        
     }
-    
 }

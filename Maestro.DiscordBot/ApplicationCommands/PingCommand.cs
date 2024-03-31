@@ -7,7 +7,6 @@ namespace Maestro.DiscordBot.ApplicationCommands;
 
 public class PingCommand : SlashCommandBase
 {
-    
     public override string Name => "ping";
     public override string Description => "Ping command";
 

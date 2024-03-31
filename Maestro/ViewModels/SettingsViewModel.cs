@@ -1,13 +1,10 @@
 ﻿using System.Reflection;
 using System.Windows.Input;
-
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
 using Maestro.Contracts.Services;
 using Maestro.Helpers;
 using Microsoft.UI.Xaml;
-
 using Windows.ApplicationModel;
 using Windows.Storage;
 
@@ -17,22 +14,21 @@ public partial class SettingsViewModel : ObservableRecipient
 {
     private readonly IThemeSelectorService _themeSelectorService;
 
-    [ObservableProperty]
-    private ElementTheme _elementTheme;
+    [ObservableProperty] private ElementTheme _elementTheme;
 
 
     //[ObservableProperty]
     //private bool _isWindowAlwaysOnTopChecked;
 
-    [ObservableProperty]
-    private string _versionDescription;
+    [ObservableProperty] private string _versionDescription;
 
     public ICommand SwitchThemeCommand
     {
         get;
     }
 
-    public SettingsViewModel(IThemeSelectorService themeSelectorService, IApplicationBehaviorService applicationBehaviorService)
+    public SettingsViewModel(IThemeSelectorService themeSelectorService,
+        IApplicationBehaviorService applicationBehaviorService)
     {
         _themeSelectorService = themeSelectorService;
         _elementTheme = _themeSelectorService.Theme;
@@ -64,7 +60,8 @@ public partial class SettingsViewModel : ObservableRecipient
             version = Assembly.GetExecutingAssembly().GetName().Version!;
         }
 
-        return $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        return
+            $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
 
     [RelayCommand]
@@ -73,5 +70,4 @@ public partial class SettingsViewModel : ObservableRecipient
         //Console.WriteLine("APPDATA PFAD:" + ApplicationData.Current.LocalFolder.Path);
         throw new NotImplementedException("");
     }
-
 }

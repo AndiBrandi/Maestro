@@ -6,16 +6,18 @@ namespace Maestro.DiscordBot;
 public class Player
 {
     #region EVENTS
+
     //TODO: Invoke for other outside sources
     public event EventHandler MusicQueueChanged;
 
     #endregion //EVENTS
 
     #region FIELDS
-    
+
     private MusicQueue _musicQueue;
 
     private Song _currentlyPlaying;
+
     #endregion //FIELDS
 
     #region PROPERTIES
@@ -33,7 +35,6 @@ public class Player
     #endregion //PROPERTIES
 
 
-
     public Player()
     {
         _musicQueue = new MusicQueue();
@@ -41,19 +42,14 @@ public class Player
 
     public void Play()
     {
-
     }
 
     public void Skip()
     {
-
     }
 
     public void Stop()
     {
         _musicQueue.ClearQueue();
     }
-
-
-
 }

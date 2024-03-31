@@ -12,17 +12,19 @@ namespace Maestro.DiscordBot
 
 
         #region PROPERTIES
+
         public List<Song> Songs
         {
-
             get
             {
                 return _songs;
             }
             set
             {
-            _songs = value; }
+                _songs = value;
+            }
         }
+
         #endregion //PROPERTIES
 
         /// <summary>

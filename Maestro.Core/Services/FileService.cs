@@ -1,7 +1,5 @@
 ﻿using System.Text;
-
 using Maestro.Core.Contracts.Services;
-
 using Newtonsoft.Json;
 
 namespace Maestro.Core.Services;

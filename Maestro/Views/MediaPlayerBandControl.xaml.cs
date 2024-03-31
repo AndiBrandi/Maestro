@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Controls;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace Maestro.Views;
+
 public sealed partial class MediaPlayerBandControl : UserControl
 {
     public MediaPlayerBandViewModel ViewModel
@@ -16,9 +17,5 @@ public sealed partial class MediaPlayerBandControl : UserControl
     {
         ViewModel = App.GetService<MediaPlayerBandViewModel>();
         InitializeComponent();
-
-
-        
     }
-
 }

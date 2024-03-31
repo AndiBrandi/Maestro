@@ -2,23 +2,20 @@
 using CommunityToolkit.Mvvm.Input;
 using Maestro.Contracts.ViewModels;
 using Maestro.DiscordBot;
+
 namespace Maestro.ViewModels;
 
 public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
 {
     public static Bot Bot;
 
-    [ObservableProperty]
-    private bool _isStartEnabled;
-    [ObservableProperty]
-    private bool _isStopEnabled;
+    [ObservableProperty] private bool _isStartEnabled;
+    [ObservableProperty] private bool _isStopEnabled;
 
-    [ObservableProperty]
-    private string _botToken;
+    [ObservableProperty] private string _botToken;
 
     public MusicbotViewModel()
     {
-
         IsStartEnabled = true;
         IsStopEnabled = false;
 
@@ -59,11 +56,9 @@ public partial class MusicbotViewModel : ObservableRecipient, INavigationAware
 
     public void OnNavigatedTo(object parameter)
     {
-
     }
 
     public void OnNavigatedFrom()
     {
-
     }
 }

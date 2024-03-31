@@ -10,14 +10,14 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <viewModels:PlaylistsDetailViewModel/>
+        <viewModels:PlaylistsDetailViewModel />
     </Page.DataContext>
 
     <Grid x:Name="ContentArea">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <VisualStateManager.VisualStateGroups>
@@ -41,34 +41,34 @@
         <!--Detailansicht (rechts) Playlists Tab-->
 
         <StackPanel Grid.Row="0"
-                x:Name="contentPanel">
+                    x:Name="contentPanel">
             <RelativePanel>
                 <Grid
-                        x:Name="itemHero"
-                        Width="200"
-                        Height="200"
-                        Margin="{StaticResource SmallRightMargin}"
-                        Padding="{StaticResource XSmallLeftTopRightBottomMargin}"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        RelativePanel.AlignTopWithPanel="True"
-                        RelativePanel.AlignLeftWithPanel="True">
+                    x:Name="itemHero"
+                    Width="200"
+                    Height="200"
+                    Margin="{StaticResource SmallRightMargin}"
+                    Padding="{StaticResource XSmallLeftTopRightBottomMargin}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True">
                     <FontIcon
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="70"
-                            Glyph="&#xE774;"
-                            AutomationProperties.Name="{x:Bind ViewModel.Item.PlaylistName}" />
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="70"
+                        Glyph="&#xE774;"
+                        AutomationProperties.Name="{x:Bind ViewModel.Item.PlaylistName}" />
                     <!--Glyph="{x:Bind ViewModel.Item.Symbol}"-->
                 </Grid>
 
                 <TextBlock
-                        x:Name="title"
-                        Margin="{StaticResource XXSmallTopMargin}"
-                        RelativePanel.AlignTopWithPanel="True"
-                        RelativePanel.RightOf="itemHero"
-                        Style="{ThemeResource TitleTextBlockStyle}"
-                        Text="{x:Bind ViewModel.Item.PlaylistName, Mode=OneWay}" />
+                    x:Name="title"
+                    Margin="{StaticResource XXSmallTopMargin}"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.RightOf="itemHero"
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    Text="{x:Bind ViewModel.Item.PlaylistName, Mode=OneWay}" />
 
                 <StackPanel x:Name="propertiesGroup1" RelativePanel.Below="itemHero">
                     <StackPanel x:Name="statusGroup" Margin="{StaticResource SmallTopMargin}">
@@ -86,12 +86,14 @@
 
                     <StackPanel>
                         <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Total Duration" />
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistName}" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                                   Text="{x:Bind ViewModel.Item.PlaylistName}" />
                     </StackPanel>
 
                     <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
                         <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Description" />
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                                   Text="{x:Bind ViewModel.Item.PlaylistDescription}" />
                     </StackPanel>
                 </StackPanel>
 
@@ -101,38 +103,37 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Button ToolTipService.ToolTip="Add Song">
-                <SymbolIcon Symbol="Add"/>
+                <SymbolIcon Symbol="Add" />
                 <Button.Flyout>
                     <Flyout AreOpenCloseAnimationsEnabled="True">
                         <StackPanel MaxWidth="400">
                             <ListView ItemsSource="{x:Bind ViewModel.LibrarySongs}" Background="Transparent"
                                       SelectedItem="{x:Bind ViewModel.SelectedLibrarySongs, Mode=TwoWay}"
                                       IsMultiSelectCheckBoxEnabled="True"
-                                  SelectionMode="Single"
-                                  >
+                                      SelectionMode="Single">
                                 <!--TODO: change selectionMode to Extended once found out how to bind multiple items to viewModel property-->
                                 <ListView.Header>
                                     <StackPanel>
-                                        <TextBlock Text="Library:" FontSize="18" FontWeight="Bold"/>
+                                        <TextBlock Text="Library:" FontSize="18" FontWeight="Bold" />
                                         <Rectangle HorizontalAlignment="Stretch"
-                                           Height="1.5"
-                                           Grid.ColumnSpan="4"
-                                           Grid.Row="1"
-                                           Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
-                                           Margin="0,5,0,0"/>
+                                                   Height="1.5"
+                                                   Grid.ColumnSpan="4"
+                                                   Grid.Row="1"
+                                                   Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
+                                                   Margin="0,5,0,0" />
 
                                     </StackPanel>
                                 </ListView.Header>
                             </ListView>
                             <Rectangle HorizontalAlignment="Stretch"
-                                           Height="1.5"
-                                           Grid.ColumnSpan="4"
-                                           Grid.Row="1"
-                                           Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
-                                           Margin="0,5,0,0"/>
+                                       Height="1.5"
+                                       Grid.ColumnSpan="4"
+                                       Grid.Row="1"
+                                       Fill="{StaticResource LayerOnMicaBaseAltFillColorSecondary}"
+                                       Margin="0,5,0,0" />
                             <Grid HorizontalAlignment="Stretch" Margin="10">
 
-                                <Button Content="Apply" Command="{x:Bind ViewModel.AddItemsCommand}"/>
+                                <Button Content="Apply" Command="{x:Bind ViewModel.AddItemsCommand}" />
                                 <!--<TextBlock Text="Shift/Ctrl for Multi-select"
                                            HorizontalAlignment="Right"
                                            VerticalAlignment="Bottom"
@@ -142,25 +143,28 @@
                     </Flyout>
                 </Button.Flyout>
             </Button>
-            <DropDownButton Grid.Column="1" ToolTipService.ToolTip="Edit Options" Margin="{StaticResource XSmallLeftMargin}">
+            <DropDownButton Grid.Column="1" ToolTipService.ToolTip="Edit Options"
+                            Margin="{StaticResource XSmallLeftMargin}">
                 <DropDownButton.Content>
-                    <SymbolIcon Symbol="Edit"/>
+                    <SymbolIcon Symbol="Edit" />
                 </DropDownButton.Content>
                 <DropDownButton.Flyout>
                     <MenuFlyout Placement="RightEdgeAlignedBottom">
                         <MenuFlyoutItem Text="Save Playlist"
                                         Icon="Save"
                                         Command="{x:Bind ViewModel.SaveCommand}"
-                                        ToolTipService.ToolTip="Save Playlist"/>
+                                        ToolTipService.ToolTip="Save Playlist" />
                         <MenuFlyoutItem Text="Delete Selected"
                                         Icon="Delete"
                                         Command="{x:Bind ViewModel.DeleteItemCommand}"
-                                        ToolTipService.ToolTip="Delete Selected Song"/>
+                                        ToolTipService.ToolTip="Delete Selected Song" />
                     </MenuFlyout>
                 </DropDownButton.Flyout>
             </DropDownButton>
-            <SymbolIcon Margin="{StaticResource SmallLeftMargin}" Symbol="Accept" Foreground="Green" Visibility="{x:Bind ViewModel.IsCheckMarkVisible}"/>
-            <ProgressRing Margin="{StaticResource SmallLeftMargin}" IsActive="True" Visibility="{x:Bind ViewModel.IsLoadingRingVisible}"/>
+            <SymbolIcon Margin="{StaticResource SmallLeftMargin}" Symbol="Accept" Foreground="Green"
+                        Visibility="{x:Bind ViewModel.IsCheckMarkVisible}" />
+            <ProgressRing Margin="{StaticResource SmallLeftMargin}" IsActive="True"
+                          Visibility="{x:Bind ViewModel.IsLoadingRingVisible}" />
         </StackPanel>
         <ListView ItemsSource="{x:Bind ViewModel.Songlist, Mode=OneWay}"
                   x:Name="songListView"
@@ -173,24 +177,24 @@
 
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
 
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="{x:Bind SongTitle}"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"/>
+                                   Grid.Column="0"
+                                   VerticalAlignment="Center" />
                         <TextBlock Text="{x:Bind SongDurationFormatted}"
-                               Grid.Column="1" Margin="{StaticResource SmallRightMargin}"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"/>
+                                   Grid.Column="1" Margin="{StaticResource SmallRightMargin}"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.Header>
-                <TextBlock Text="Songs:" FontWeight="Bold" FontSize="18" Margin="0,10,0,0"/>
+                <TextBlock Text="Songs:" FontWeight="Bold" FontSize="18" Margin="0,10,0,0" />
             </ListView.Header>
 
         </ListView>

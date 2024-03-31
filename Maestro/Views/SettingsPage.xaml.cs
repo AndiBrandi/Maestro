@@ -1,5 +1,4 @@
 ﻿using Maestro.ViewModels;
-
 using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.Views;

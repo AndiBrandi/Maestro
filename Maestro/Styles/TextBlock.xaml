@@ -46,14 +46,14 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontSize" Value="15" />
     </Style>
-    
+
     <Style TargetType="TextBlock" x:Key="SongLabel">
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
     <Style TargetType="TextBlock" x:Key="AdditionalInfoLabel">
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Opacity" Value="0.7" />
 
     </Style>
 

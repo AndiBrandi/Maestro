@@ -10,6 +10,6 @@
     PersistenceId="MainWindow"
     mc:Ignorable="d">
     <Window.SystemBackdrop>
-        <MicaBackdrop Kind="BaseAlt"/>
+        <MicaBackdrop Kind="BaseAlt" />
     </Window.SystemBackdrop>
 </windowex:WindowEx>

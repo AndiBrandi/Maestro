@@ -1,5 +1,4 @@
 ﻿using Maestro.ViewModels;
-
 using Microsoft.UI.Xaml.Controls;
 
 namespace Maestro.Views;
@@ -15,8 +14,5 @@ public sealed partial class QueuePage : Page
     {
         ViewModel = App.GetService<QueueViewModel>();
         InitializeComponent();
-
     }
-
-    
 }

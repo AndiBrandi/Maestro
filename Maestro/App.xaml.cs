@@ -9,7 +9,6 @@ using Maestro.Notifications;
 using Maestro.Services;
 using Maestro.ViewModels;
 using Maestro.Views;
-
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -40,66 +39,68 @@ public partial class App : Application
         return service;
     }
 
-    public static WindowEx MainWindow { get; } = new MainWindow();
+    public static WindowEx MainWindow
+    {
+        get;
+    } = new MainWindow();
 
     public static UIElement? AppTitlebar
     {
-        get; set;
+        get;
+        set;
     }
 
     public App()
     {
         InitializeComponent();
 
-        Host = Microsoft.Extensions.Hosting.Host.
-        CreateDefaultBuilder().
-        UseContentRoot(AppContext.BaseDirectory).
-        ConfigureServices((context, services) =>
-        {
-            // Default Activation Handler
-            services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
+        Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory)
+            .ConfigureServices((context, services) =>
+            {
+                // Default Activation Handler
+                services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-            // Other Activation Handlers
-            services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
-                                                                                                                                                                                                
-            // Services
-            services.AddSingleton<IAppNotificationService, AppNotificationService>();
-            services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
-            services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-            services.AddTransient<INavigationViewService, NavigationViewService>();
-            services.AddSingleton<IApplicationBehaviorService, ApplicationBehaviorService>();
-            services.AddSingleton<IActivationService, ActivationService>();
-            services.AddSingleton<IPageService, PageService>();
-            services.AddSingleton<INavigationService, NavigationService>();
+                // Other Activation Handlers
+                services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
 
-            // Core Services
-            services.AddSingleton<IFileService, FileService>();
+                // Services
+                services.AddSingleton<IAppNotificationService, AppNotificationService>();
+                services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
+                services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+                services.AddTransient<INavigationViewService, NavigationViewService>();
+                services.AddSingleton<IApplicationBehaviorService, ApplicationBehaviorService>();
+                services.AddSingleton<IActivationService, ActivationService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<INavigationService, NavigationService>();
 
-            // Views
-            services.AddTransient<SettingsPage>();
-            services.AddTransient<PlaylistsDetailPage>();
-            services.AddTransient<PlaylistsPage>();
-            services.AddTransient<LibraryPage>();
-            services.AddTransient<MusicbotPage>();
-            services.AddTransient<QueuePage>();
-            services.AddTransient<ShellPage>();
-            services.AddTransient<MediaPlayerBandControl>();
+                // Core Services
+                services.AddSingleton<IFileService, FileService>();
 
-            //ViewModels
-            services.AddTransient<SettingsViewModel>();
-            services.AddTransient<PlaylistsDetailViewModel>();
-            services.AddTransient<PlaylistsViewModel>();
-            services.AddTransient<ShellViewModel>();
-            services.AddTransient<MusicbotViewModel>();
-            services.AddTransient<QueueViewModel>();
-            services.AddTransient<LibraryViewModel>();
-            services.AddTransient<MediaPlayerBandViewModel>();
-            
+                // Views
+                services.AddTransient<SettingsPage>();
+                services.AddTransient<PlaylistsDetailPage>();
+                services.AddTransient<PlaylistsPage>();
+                services.AddTransient<LibraryPage>();
+                services.AddTransient<MusicbotPage>();
+                services.AddTransient<QueuePage>();
+                services.AddTransient<ShellPage>();
+                services.AddTransient<MediaPlayerBandControl>();
 
-            // Configuration
-            services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
-        }).
-        Build();
+                //ViewModels
+                services.AddTransient<SettingsViewModel>();
+                services.AddTransient<PlaylistsDetailViewModel>();
+                services.AddTransient<PlaylistsViewModel>();
+                services.AddTransient<ShellViewModel>();
+                services.AddTransient<MusicbotViewModel>();
+                services.AddTransient<QueueViewModel>();
+                services.AddTransient<LibraryViewModel>();
+                services.AddTransient<MediaPlayerBandViewModel>();
+
+
+                // Configuration
+                services.Configure<LocalSettingsOptions>(
+                    context.Configuration.GetSection(nameof(LocalSettingsOptions)));
+            }).Build();
 
         App.GetService<IAppNotificationService>().Initialize();
 

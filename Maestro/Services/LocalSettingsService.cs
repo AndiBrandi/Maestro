@@ -3,7 +3,6 @@ using Maestro.Core.Contracts.Services;
 using Maestro.Core.Helpers;
 using Maestro.Helpers;
 using Maestro.Core.Models;
-
 using Microsoft.Extensions.Options;
 using Windows.Storage;
 
@@ -17,7 +16,9 @@ public class LocalSettingsService : ILocalSettingsService
     private readonly IFileService _fileService;
     private readonly LocalSettingsOptions _options;
 
-    private readonly string _localApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+    private readonly string _localApplicationData =
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
     private readonly string _applicationDataFolder;
     private readonly string _localsettingsFile;
 
@@ -30,7 +31,8 @@ public class LocalSettingsService : ILocalSettingsService
         _fileService = fileService;
         _options = options.Value;
 
-        _applicationDataFolder = Path.Combine(_localApplicationData, _options.ApplicationDataFolder ?? _defaultApplicationDataFolder);
+        _applicationDataFolder = Path.Combine(_localApplicationData,
+            _options.ApplicationDataFolder ?? _defaultApplicationDataFolder);
         _localsettingsFile = _options.LocalSettingsFile ?? _defaultLocalSettingsFile;
 
         _settings = new Dictionary<string, object>();
@@ -40,7 +42,10 @@ public class LocalSettingsService : ILocalSettingsService
     {
         if (!_isInitialized)
         {
-            _settings = await Task.Run(() => _fileService.Read<IDictionary<string, object>>(_applicationDataFolder, _localsettingsFile)) ?? new Dictionary<string, object>();
+            _settings = await Task.Run(() =>
+                            _fileService.Read<IDictionary<string, object>>(_applicationDataFolder,
+                                _localsettingsFile)) ??
+                        new Dictionary<string, object>();
 
             _isInitialized = true;
         }

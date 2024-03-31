@@ -1,5 +1,4 @@
 ﻿using Maestro.Contracts.Services;
-
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
@@ -11,7 +10,8 @@ public class AppNotificationActivationHandler : ActivationHandler<LaunchActivate
     private readonly INavigationService _navigationService;
     private readonly IAppNotificationService _notificationService;
 
-    public AppNotificationActivationHandler(INavigationService navigationService, IAppNotificationService notificationService)
+    public AppNotificationActivationHandler(INavigationService navigationService,
+        IAppNotificationService notificationService)
     {
         _navigationService = navigationService;
         _notificationService = notificationService;
