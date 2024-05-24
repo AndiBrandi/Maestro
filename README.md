@@ -6,6 +6,7 @@
 ### Table of Contents
 - [Introduction](#introduction)
 - [Feature Matrix](#feature-matrix)
+- [How to get the Settings Values](#how-to-get-the-necessary-settings-values)
 
 ## Introduction
 Originated from a Hobby project done by myself. This simply aims to assist with controlling a Discord music bot
