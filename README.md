@@ -26,6 +26,7 @@ Originated from a Hobby project done by myself. This simply aims to assist with 
 | Media player                 | -      |
 | Library song listing         | ++     |
 | Library song management      | -      |
+| Song-Info fetch by URL       | -      |
 | Playlists listing            | ++     |
 | Playlist management          | -      |
 | Playlist-detail editing      | -      |
