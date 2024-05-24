@@ -32,3 +32,16 @@ Originated from a Hobby project done by myself. This simply aims to assist with 
 | Built-in Bot Page            | -      |
 | Settings                     | +      |
 | Overall Window Behavior      | +      |
+
+## How to get the necessary Settings values:
+### Discord Bot Token
+1. [Create a Bot Account](https://discordpy.readthedocs.io/en/stable/discord.html)
+2. Under "Bot" click **Reset Token** to obtain a new Token (DO NOT SHARE IT)
+
+### User ID
+Go to your Discord Settings and enable > **Advanced** > **Developer Mode**
+Now click your Avatar in the left bottom corner and "Copy User ID"  
+
+### Server ID
+Right click your Server and "Copy Server ID"
+
