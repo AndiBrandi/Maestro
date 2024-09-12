@@ -19,7 +19,7 @@ public class Bot
     private static DiscordSocketClient _client;
     public static Player Player;
     private readonly ulong _guildId;
-    private string _botToken; //= "MTIxMTAzMDkwMjI4NTU0MTQxNg.GuA_C9._cMaUP3vpSO1XSggu83l33Z4MucrTPgLusA02U";
+    private string _botToken;
 
     public bool IsRunning;
     public bool IsRunningNegated;
